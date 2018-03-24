@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4261074039000270}
   - component: {fileID: 114430977781345524}
+  - component: {fileID: 114668135834464788}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -176,6 +177,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '[Doggo Name]'
+--- !u!114 &114668135834464788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201191047290478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a819dee9fbd2c7419f9521e470227d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cursor: {fileID: 2800000, guid: fd4d9887999dcc445b760edace4b20a6, type: 3}
 --- !u!222 &222108263425719296
 CanvasRenderer:
   m_ObjectHideFlags: 1
