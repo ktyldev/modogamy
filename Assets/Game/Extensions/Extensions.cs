@@ -40,21 +40,10 @@ namespace Extensions
             return result;
         }
 
-        public static string RandomLine(string[] lines)
+        public static string RandomLine(List<string> lines)
         {
-
-            using (StreamReader r = new StreamReader(fileName))
-            {
-                int length = 0;
-                while (r.ReadLine() != null) { length++; }
-            }
-            using (StreamReader r = new StreamReader(fileName))
-            { 
-                while (r.ReadLine() != )
-            }
-            int count = file.Count();
-            string line = file.Skip(UnityEngine.Random.Range(0, count)).First();
-            return line;
+            int length = lines.Count;
+            return lines[UnityEngine.Random.Range(0, length-1)];
         }
     }
 }
