@@ -93,10 +93,11 @@ public class DogFactory : MonoBehaviour
         var profile = new DogProfile
         {
             Name = GetRandomName(),
-            Like = GetRandomLike(),
             Size = GetRandomSize(),
+            Like = GetRandomLike(),
             Index = UnityEngine.Random.Range(0, _dogGraphics.Length)
         };
+        print(profile.Size);
         return profile;
     }
 

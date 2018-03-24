@@ -38,7 +38,8 @@ public class App : MonoBehaviour {
 
     void LoadNewProfile()
     {
-        LoadProfile(_factory.GetNewDogProfile());
+        _currentProfile = _factory.GetNewDogProfile();
+        LoadProfile(_currentProfile);
     }
 
     void Start()
