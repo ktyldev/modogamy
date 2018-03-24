@@ -59,6 +59,7 @@ MonoBehaviour:
   _minDistanceFromTarget: 0.5
   _minDistanceFromPlayer: 0.5
   _maxDistanceFromPlayer: 10
+  _lookLockTime: 0.5
 --- !u!114 &114295577924430774
 MonoBehaviour:
   m_ObjectHideFlags: 1

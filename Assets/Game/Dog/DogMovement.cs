@@ -22,6 +22,13 @@ public class DogMovement : MonoBehaviour
     [SerializeField]
     private float _maxDistanceFromPlayer;
 
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float _lookLockTime;
+    private float _lookTimer = 0;
+
+    private bool LookIsLocked { get { return _lookTimer > 0f;  } }
+
     // Where the dog wants to run
     private Vector3 _targetMomentum;
     private Vector3 _momentum;
@@ -46,13 +53,24 @@ public class DogMovement : MonoBehaviour
     {
         _momentum = Vector3.Lerp(_momentum, _targetMomentum, _acceleration);
 
-        transform.LookAt(_targetPosition);
+        SetLookTarget(_targetPosition);
         transform.Translate(_momentum * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(_target.position, transform.position) > 20)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void SetLookTarget(Vector3 target)
+    {
+        if (!LookIsLocked)
+        {
+            transform.LookAt(target);
+            _lookTimer = _lookLockTime;
+        }
+
+        _lookTimer = Mathf.Clamp(_lookTimer - Time.deltaTime, 0f, _lookLockTime);
     }
 
     private IEnumerator SetMoveTarget()
