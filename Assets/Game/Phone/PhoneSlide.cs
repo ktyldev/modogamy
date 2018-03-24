@@ -57,11 +57,13 @@ public class PhoneSlide : MonoBehaviour
 
     public void SlideIn()
     {
+        GameController.IsUsingPhone = true;
         _targetY = _slideInY;
     }
 
     public void SlideOut()
     {
+        GameController.IsUsingPhone = false;
         _targetY = _slideOutY;
     }
 }
