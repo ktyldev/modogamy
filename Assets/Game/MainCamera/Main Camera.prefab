@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114028537578245538}
   - component: {fileID: 114060075688021178}
   - component: {fileID: 114951867337559532}
+  - component: {fileID: 114275010242432656}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -158,6 +159,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &114275010242432656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529870898880392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61354492d2d0df048850c96ae4863f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _normalAperture: 8
+  _phoneAperture: 0.1
 --- !u!114 &114951867337559532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: ba1df40a213a0b046b2368d8a3b5ae94, type: 2}
   isGlobal: 1
-  blendDistance: 0
+  blendDistance: 1000
   weight: 1
   priority: 0
 --- !u!124 &124320275988214950
