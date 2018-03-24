@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Dog))]
 public class DogMovement : MonoBehaviour
 {
     [SerializeField]
@@ -28,12 +29,16 @@ public class DogMovement : MonoBehaviour
     private Transform _target;
     private Vector3 _targetPosition;
 
+    private bool _isLeaving;
+
     // Use this for initialization
     void Start()
     {
         _target = this.Find(GameTags.Player).transform;
 
         StartCoroutine(SetMoveTarget());
+
+        GetComponent<Dog>().Leave.AddListener(() => _isLeaving = true);
     }
 
     // Update is called once per frame
@@ -43,6 +48,11 @@ public class DogMovement : MonoBehaviour
 
         transform.LookAt(_targetPosition);
         transform.Translate(_momentum * Time.deltaTime, Space.World);
+
+        if (Vector3.Distance(_target.position, transform.position) > 20)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator SetMoveTarget()
@@ -51,12 +61,12 @@ public class DogMovement : MonoBehaviour
 
         float targetSpeed = _maxSpeed;
 
-        while (true)
+        while (!_isLeaving)
         {
             var arrivedAtTarget = Vector3.Distance(
                 _target.position, 
                 transform.position) < _minDistanceFromPlayer;
-            arrivedAtTarget = arrivedAtTarget && Vector3.Distance(
+            arrivedAtTarget = arrivedAtTarget || Vector3.Distance(
                 _target.position,
                 _targetPosition) < _minDistanceFromTarget;
 

@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minSpeed: 1.5
-<<<<<<< HEAD
   _maxSpeed: 5
   _maxTargetOffset: 10
   _acceleration: 0.05
@@ -186,3 +185,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _graphics: {fileID: 1350833945418822}
+  _minWalkTime: 15
+  _maxWalkTime: 120
