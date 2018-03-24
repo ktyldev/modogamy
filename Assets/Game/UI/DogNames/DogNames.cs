@@ -18,6 +18,9 @@ public class DogNames : MonoBehaviour {
     [SerializeField]
     Vector3 _offset;
 
+    [SerializeField]
+    float fuzziness;
+
     private Camera _mainCam
     {
         get
@@ -28,7 +31,8 @@ public class DogNames : MonoBehaviour {
 
 	void Update () {
         ray = _mainCam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+
+        if (Physics.SphereCast(ray, fuzziness, out hit))
         {
             hoverDog = hit.collider.GetComponentInParent<Dog>();
             if (hoverDog != null)

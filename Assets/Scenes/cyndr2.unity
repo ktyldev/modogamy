@@ -402,6 +402,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114430977781345524, guid: 9529d595c9e912849ab00caefd9150a0,
+        type: 2}
+      propertyPath: fuzziness
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9529d595c9e912849ab00caefd9150a0, type: 2}
   m_IsPrefabParent: 0

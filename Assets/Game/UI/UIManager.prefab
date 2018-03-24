@@ -121,6 +121,7 @@ MonoBehaviour:
   _followCursor: 1
   _text: {fileID: 114605391683924392}
   _offset: {x: 5, y: -25, z: 0}
+  fuzziness: 0.5
 --- !u!114 &114567700478094278
 MonoBehaviour:
   m_ObjectHideFlags: 1
