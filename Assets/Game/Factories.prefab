@@ -80,6 +80,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa520fa244c4a9c4d9eab9ff800273e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSize: 10
-  maxSize: 50
-  sizeLambda: 25
+  _dog: {fileID: 1865129357992936, guid: e8c47aaed2680d348a729cc52c8b9df5, type: 2}
+  _minSize: 10
+  _maxSize: 50
+  _sizeLambda: 25
+  _dogScale: 0.05
+  _nameFile: {fileID: 4900000, guid: 34b8195e7fda11947bfc8315a223901e, type: 3}
+  _likeFile: {fileID: 4900000, guid: ad4c0b67ea27fbe47ad1d6de17918801, type: 3}

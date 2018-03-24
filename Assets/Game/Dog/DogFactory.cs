@@ -21,18 +21,22 @@ public class DogFactory : MonoBehaviour
     [SerializeField]
     private float _dogScale = 0.05f;
 
+    [SerializeField]
+    private TextAsset _nameFile;
     private string[] _nameList;
     private int _nameCount;
 
+    [SerializeField]
+    private TextAsset _likeFile;
     private string[] _likeList;
     private int _likeCount;
 
     void Awake()
     {
-        _nameList = File.ReadAllLines("Assets/Resources/names.txt");
+        _nameList = _nameFile.text.Split('\n');
         _nameCount = _nameList.Length;
 
-        _likeList = File.ReadAllLines("Assets/Resources/likes.txt");
+        _likeList = _likeFile.text.Split('\n');
         _likeCount = _likeList.Length;
     }
 
