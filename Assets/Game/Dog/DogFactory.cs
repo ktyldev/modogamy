@@ -97,7 +97,6 @@ public class DogFactory : MonoBehaviour
             Like = GetRandomLike(),
             Index = UnityEngine.Random.Range(0, _dogGraphics.Length)
         };
-        print(profile.Size);
         return profile;
     }
 
