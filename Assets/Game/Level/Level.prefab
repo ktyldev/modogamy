@@ -181,3 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d838e067991421648a6feb3d34961304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelRoot: {fileID: 4538527811456790}
+  _parkTile: {fileID: 1056731554485982, guid: 355572268f3e9d047a676ca01972e499, type: 2}
+  _startOffset: 37.5
+  _tileLength: 75

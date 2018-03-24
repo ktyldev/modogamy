@@ -431,6 +431,16 @@ Prefab:
       propertyPath: _offsetRight
       value: 37.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114437335107601570, guid: 96d39a4a404a70c408adf91e0c2a4ca8,
+        type: 2}
+      propertyPath: _tileLength
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437335107601570, guid: 96d39a4a404a70c408adf91e0c2a4ca8,
+        type: 2}
+      propertyPath: _startOffset
+      value: 37.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96d39a4a404a70c408adf91e0c2a4ca8, type: 2}
   m_IsPrefabParent: 0
