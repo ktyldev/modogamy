@@ -7,27 +7,57 @@ using Extensions;
 public class DogFactory : MonoBehaviour
 {
     [SerializeField]
-    private int minSize = 10;
+    private GameObject _dog;
     [SerializeField]
-    private int maxSize = 50;
+    private int _minSize = 10;
     [SerializeField]
-    private double sizeLambda = 25;
+    private int _maxSize = 50;
+    [SerializeField]
+    private double _sizeLambda = 25;
+    [SerializeField]
+    private float _dogScale = 0.05f;
 
-    private int _size;
-    
-    void Awake()
+    void Start()
     {
+        StartCoroutine(GenerateDogs());
+    }
+
+    // Temporary until we can generate dogs properly
+    private IEnumerator GenerateDogs()
+    {
+        var delay = 2;
+        var maxOffset = 10f;
+
+        while (true)
+        {
+            var dog = GetNewDog();
+            var offset = new Vector3
+            {
+                x = (UnityEngine.Random.value * 2 - 1) * maxOffset
+            };
+
+            dog.transform.Translate(offset);
+            yield return new WaitForSeconds(delay);
+        }
     }
 
     void Update()
     {
-        print(GetRandomSize());
+
     }
 
-    private int GetRandomSize()
+    public Dog GetNewDog()
+    {
+        var dog = Instantiate(_dog).GetComponent<Dog>();
+        dog.Size = GetRandomSize();
+
+        return dog;
+    }
+
+    private float GetRandomSize()
     {
         // first, do a rough poisson calculation
-        double p = 1.0, L = Math.Exp(-sizeLambda);
+        double p = 1.0, L = Math.Exp(-_sizeLambda);
         int k = 0;
         do
         {
@@ -37,6 +67,6 @@ public class DogFactory : MonoBehaviour
         while (p > L);
         k--;
         // now we've got our poisson, let's clamp it
-        return Mathf.Clamp(k, minSize, maxSize);
+        return Mathf.Clamp((float)k, _minSize, _maxSize) * _dogScale;
     }
 }
