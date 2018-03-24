@@ -35,8 +35,6 @@ public class PostFXHandler : MonoBehaviour {
             _dof.aperture.value,
             _targetAperture,
             0.2f);
-
-        print(_dof.aperture.value);
 	}
 
     private void OnDestroy()
