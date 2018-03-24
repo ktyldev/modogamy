@@ -182,6 +182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelRoot: {fileID: 4538527811456790}
-  _parkTile: {fileID: 1056731554485982, guid: 355572268f3e9d047a676ca01972e499, type: 2}
+  _cityParkTransition: {fileID: 1458932808393990, guid: 3c417c52647f30147b771b3e241b7432,
+    type: 2}
+  _park: {fileID: 1056731554485982, guid: 355572268f3e9d047a676ca01972e499, type: 2}
+  _parkCityTransition: {fileID: 1161835201260234, guid: bca633b40984c624badc824ffb8f3607,
+    type: 2}
+  _end: {fileID: 1462449625795918, guid: 572f4084dac91e64b9ef40c760d9d0f3, type: 2}
   _startOffset: 37.5
   _tileLength: 75
+  _levelLength: 5
