@@ -13,6 +13,8 @@ public class DogFactory : MonoBehaviour
     [SerializeField]
     private GameObject _dog;
     [SerializeField]
+    private GameObject[] _dogGraphics;
+    [SerializeField]
     private int _minSize = 10;
     [SerializeField]
     private int _maxSize = 50;
@@ -71,8 +73,15 @@ public class DogFactory : MonoBehaviour
 
     public Dog GetNewDog()
     {
-        var dog = Instantiate(_dog).GetComponent<Dog>();
+        var dog = Instantiate(_dog)
+            .GetComponent<Dog>();
+
+        var r = UnityEngine.Random.Range(0, _dogGraphics.Length);
+        var graphics = Instantiate(_dogGraphics[r], dog.transform);
+
         dog.Size = GetRandomSize();
+        graphics.transform.localScale = Vector3.one * dog.Size;
+
         dog.Name = GetRandomName();
         dog.Like = GetRandomLike();
 

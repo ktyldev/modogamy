@@ -7,8 +7,6 @@ using UnityEngine.Events;
 public class Dog : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _graphics;
-    [SerializeField]
     private int _minWalkTime;
     [SerializeField]
     private int _maxWalkTime;
@@ -28,7 +26,6 @@ public class Dog : MonoBehaviour
 
     void Start()
     {
-        _graphics.transform.localScale *= Size;
         StartCoroutine(WalkTimer());
     }
 
