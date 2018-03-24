@@ -44,15 +44,15 @@ public class DogFactory : MonoBehaviour
     // Temporary until we can generate dogs properly
     private IEnumerator GenerateDogs()
     {
-        var delay = 2;
-        var maxOffset = 10f;
+        var delay = 6;
+        var spawnOffset = 20;
 
         while (true)
         {
             var dog = GetNewDog();
             var offset = new Vector3
             {
-                x = (UnityEngine.Random.value * 2 - 1) * maxOffset
+                x = (UnityEngine.Random.value * 2 - 1) * spawnOffset
             };
 
             dog.transform.Translate(offset);
@@ -73,7 +73,7 @@ public class DogFactory : MonoBehaviour
         dog.Like = GetRandomLike();
 
         print(dog.Name + " likes " + dog.Like);
-
+        
         return dog;
 
     }

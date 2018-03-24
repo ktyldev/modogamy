@@ -53,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4928175035059260}
   - component: {fileID: 114295577924430774}
+  - component: {fileID: 114278151493154122}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -154,6 +155,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114278151493154122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865129357992936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a08b99c8eee0b42b307c14907f560b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minSpeed: 1.5
+  _maxSpeed: 20
+  _maxTargetOffset: 10
+  _acceleration: 0.05
+  _minDistanceFromTarget: 0.5
+  _minDistanceFromPlayer: 0.5
+  _maxDistanceFromPlayer: 15
 --- !u!114 &114295577924430774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,5 +185,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _graphics: {fileID: 1350833945418822}
-  _walkSpeed: 2
-  _maxTargetOffset: 6
