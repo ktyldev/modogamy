@@ -167,12 +167,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minSpeed: 1.5
+<<<<<<< HEAD
   _maxSpeed: 5
   _maxTargetOffset: 10
   _acceleration: 0.05
   _minDistanceFromTarget: 0.5
   _minDistanceFromPlayer: 0.5
-  _maxDistanceFromPlayer: 15
+  _maxDistanceFromPlayer: 10
 --- !u!114 &114295577924430774
 MonoBehaviour:
   m_ObjectHideFlags: 1
