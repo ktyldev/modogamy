@@ -11,6 +11,8 @@ using Extensions;
 public class DogFactory : MonoBehaviour
 {
     [SerializeField]
+    private Transform _spawnTargetTransform;
+    [SerializeField]
     private GameObject _dog;
     [SerializeField]
     private GameObject[] _dogGraphics;
@@ -58,7 +60,7 @@ public class DogFactory : MonoBehaviour
             var dog = GetNewDog();
             var offset = new Vector3
             {
-                x = (UnityEngine.Random.value * 2 - 1) * spawnOffset
+                x = _spawnTargetTransform.position.x + (UnityEngine.Random.value * 2 - 1) * spawnOffset
             };
 
             dog.transform.Translate(offset);
@@ -77,7 +79,7 @@ public class DogFactory : MonoBehaviour
             .GetComponent<Dog>();
 
         var r = UnityEngine.Random.Range(0, _dogGraphics.Length);
-        var graphics = Instantiate(_dogGraphics[r], dog.transform);
+        var graphics = Instantiate(_dogGraphics[r], dog.graphics.transform);
 
         dog.Size = GetRandomSize();
         graphics.transform.localScale = Vector3.one * dog.Size;

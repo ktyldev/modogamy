@@ -7,42 +7,15 @@ public class PlayerController : MonoBehaviour, IBouncer
 {
     [SerializeField]
     private float _walkSpeed;
-
-    public UnityEvent StartBouncing { get; private set; }
-    public UnityEvent StopBouncing { get; private set; }
-
-    private bool HasInput { get { return Input.GetAxis(GameTags.Horizontal) != 0; } }
-    private bool _isMoving;
-
-    private void Awake()
-    {
-        StartBouncing = new UnityEvent();
-        StopBouncing = new UnityEvent();
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
     
-    // Update is called once per frame
+    private bool HasInput { get { return Input.GetAxis(GameTags.Horizontal) != 0; } }
+    public bool IsBouncing { get { return HasInput; } }
+    
     void Update()
     {
         if (GameController.IsUsingPhone)
             return;
-
-        if (!_isMoving && HasInput)
-        {
-            _isMoving = true;
-            StartBouncing.Invoke();
-        }
-        if (_isMoving && !HasInput)
-        {
-            _isMoving = false;
-            StopBouncing.Invoke();
-        }
-
+        
         Walk();
     }
 
