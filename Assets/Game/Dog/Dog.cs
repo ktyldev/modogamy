@@ -8,6 +8,7 @@ public class Dog : MonoBehaviour
     private GameObject _graphics;
 
     public float Size { get; set; }
+    public string Name { get; set; }
 
     void Start()
     {

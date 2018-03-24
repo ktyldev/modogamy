@@ -1,4 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +20,15 @@ public class DogFactory : MonoBehaviour
     private double _sizeLambda = 25;
     [SerializeField]
     private float _dogScale = 0.05f;
+
+    private string[] _nameList;
+    private int _nameCount;
+
+    void Awake()
+    {
+        _nameList = File.ReadAllLines("Assets/Resources/names.txt");
+        _nameCount = _nameList.Length;
+    }
 
     void Start()
     {
@@ -50,8 +63,12 @@ public class DogFactory : MonoBehaviour
     {
         var dog = Instantiate(_dog).GetComponent<Dog>();
         dog.Size = GetRandomSize();
+        dog.name = GetRandomName();
+
+        print(dog.name);
 
         return dog;
+
     }
 
     private float GetRandomSize()
@@ -68,5 +85,12 @@ public class DogFactory : MonoBehaviour
         k--;
         // now we've got our poisson, let's clamp it
         return Mathf.Clamp((float)k, _minSize, _maxSize) * _dogScale;
+    }
+
+    private string GetRandomName()
+    {
+        string name = _nameList[UnityEngine.Random.Range(0, _nameCount)];
+        name = Regex.Replace(name, @"\s+", "");
+        return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name.ToLower());
     }
 }
