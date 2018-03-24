@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     [Range(0, 1)]
     private float _sensitivity;
+    [SerializeField]
+    private float _lookOffsetV;
 
     private Vector3 _offset;
 
@@ -23,6 +25,6 @@ public class CameraController : MonoBehaviour
     {
         var targetPosition = _trackedObject.transform.position + _offset;
         transform.position = Vector3.Lerp(transform.transform.position, targetPosition, _sensitivity);
-        transform.LookAt(_trackedObject);
+        transform.LookAt(_trackedObject.transform.position + Vector3.up * _lookOffsetV);
     }
 }
