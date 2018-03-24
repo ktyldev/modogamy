@@ -123,6 +123,7 @@ MonoBehaviour:
   _text: {fileID: 114605391683924392}
   _offset: {x: 5, y: -25, z: 0}
   fuzziness: 0.5
+  _hangTime: 0.1
 --- !u!114 &114567700478094278
 MonoBehaviour:
   m_ObjectHideFlags: 1
