@@ -44,14 +44,15 @@ public class DogNames : MonoBehaviour {
         {
             hoverDog = null;
         }
-    }
 
-    private void OnGUI()
-    {
-        _text.text = (hoverDog == null) ? "" : hoverDog.Name;
         if (_followCursor)
         {
             _text.transform.position = Input.mousePosition + _offset;
         }
+    }
+
+    void OnGUI()
+    {
+        _text.text = (hoverDog == null) ? "" : hoverDog.Name;
     }
 }
