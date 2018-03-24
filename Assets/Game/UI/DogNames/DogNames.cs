@@ -10,7 +10,13 @@ public class DogNames : MonoBehaviour {
     Dog hoverDog;
 
     [SerializeField]
+    bool _followCursor;
+
+    [SerializeField]
     Text _text;
+
+    [SerializeField]
+    Vector3 _offset;
 
     private Camera _mainCam
     {
@@ -39,5 +45,9 @@ public class DogNames : MonoBehaviour {
     private void OnGUI()
     {
         _text.text = (hoverDog == null) ? "" : hoverDog.Name;
+        if (_followCursor)
+        {
+            _text.transform.position = Input.mousePosition + _offset;
+        }
     }
 }

@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minSpeed: 1.5
-  _maxSpeed: 20
+  _maxSpeed: 5
   _maxTargetOffset: 10
   _acceleration: 0.05
   _minDistanceFromTarget: 0.5
