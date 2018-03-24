@@ -166,3 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _graphics: {fileID: 1350833945418822}
+  _walkSpeed: 2
+  _maxTargetOffset: 6
