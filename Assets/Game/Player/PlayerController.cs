@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour, IBouncer
     // Update is called once per frame
     void Update()
     {
+        if (GameController.IsUsingPhone)
+            return;
+
         if (!_isMoving && HasInput)
         {
             _isMoving = true;
