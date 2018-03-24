@@ -66,6 +66,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4036757142239886}
+  - component: {fileID: 65433339848902510}
   m_Layer: 0
   m_Name: Dog 4
   m_TagString: Untagged
@@ -169,3 +170,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1072469709480818}
   m_Mesh: {fileID: 4300000, guid: 6f51f7ee0f2fbe4429bf9098f99bfd3f, type: 3}
+--- !u!65 &65433339848902510
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1801086074359662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 2}
+  m_Center: {x: 0.05, y: 1, z: 0}

@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4184963006727164}
+  - component: {fileID: 65269240556214914}
   m_Layer: 0
   m_Name: Borkicorn
   m_TagString: Untagged
@@ -169,3 +170,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729636684318572}
   m_Mesh: {fileID: 4300000, guid: 4d9e8ad45eed5b046bb414be68e1209f, type: 3}
+--- !u!65 &65269240556214914
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148824432280438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.4, z: 2.2}
+  m_Center: {x: 0, y: 1.2, z: 0}
