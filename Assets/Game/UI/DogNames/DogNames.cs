@@ -21,6 +21,19 @@ public class DogNames : MonoBehaviour {
     [SerializeField]
     float fuzziness;
 
+    [SerializeField]
+    [Range(0, 2f)]
+    float _hangTime;
+    float _hangingTime;
+
+    private bool IsHanging
+    {
+        get
+        {
+            return _hangingTime > 0f;
+        }
+    }
+
     private Camera _mainCam
     {
         get
@@ -34,16 +47,29 @@ public class DogNames : MonoBehaviour {
 
         if (Physics.SphereCast(ray, fuzziness, out hit))
         {
-            hoverDog = hit.collider.GetComponentInParent<Dog>();
-            if (hoverDog != null)
+            var hitDog = hit.collider.GetComponentInParent<Dog>();
+            if (hitDog != null)
             {
-                print(hoverDog.Name);
+                hoverDog = hitDog;
+                _hangingTime = _hangTime;
+            }
+            else
+            {
+                if (!IsHanging)
+                {
+                    hoverDog = null;
+                }
             }
         }
         else
         {
-            hoverDog = null;
+            if (!IsHanging)
+            {
+                hoverDog = null;
+            }
         }
+
+        _hangingTime = Mathf.Clamp(_hangingTime - Time.deltaTime, 0f, _hangTime);
 
         if (_followCursor)
         {
