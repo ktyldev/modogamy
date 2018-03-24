@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public struct DogProfile
+{
+    public string Name { get; set; }
+    public float Size { get; set; }
+    public string Like { get; set; }
+    public int Index { get; set; }
+}
+
 public class Dog : MonoBehaviour, IBouncer
 {
     public GameObject graphics;
@@ -14,9 +22,8 @@ public class Dog : MonoBehaviour, IBouncer
     private int _maxWalkTime;
     
     public UnityEvent Leave { get; private set; }
-    public float Size { get; set; }
-    public string Name { get; set; }
-    public string Like { get; set; }
+
+    public DogProfile Profile { get; set; }
 
     public bool IsBouncing { get { return true; } }
 

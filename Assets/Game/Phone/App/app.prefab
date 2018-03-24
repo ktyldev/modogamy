@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4060293525388520}
+  - component: {fileID: 114118302445728210}
   m_Layer: 0
   m_Name: app
   m_TagString: Untagged
@@ -118,13 +119,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354666348071694}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4060293525388520}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!20 &20169152150259238
 Camera:
   m_ObjectHideFlags: 1
@@ -175,6 +176,21 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &114118302445728210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1450561913024544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b0cf62da380f24ebcf6e41623e060f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nameText: {fileID: 114800956829526002}
+  _likesText: {fileID: 114794628101566718}
+  _dogOffset: {x: 0, y: -1.4, z: 2}
+  _dogAngles: {x: 0, y: -90, z: 0}
 --- !u!114 &114331444907074798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,7 +260,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Likes long walks by the beach
+  m_Text: '[Dog Likes]
+
+'
 --- !u!114 &114800956829526002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,7 +295,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Edward
+  m_Text: '[Dog Name]
+
+'
 --- !u!114 &114955383117705586
 MonoBehaviour:
   m_ObjectHideFlags: 1

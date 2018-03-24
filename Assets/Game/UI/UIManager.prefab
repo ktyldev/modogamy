@@ -122,8 +122,8 @@ MonoBehaviour:
   _followCursor: 1
   _text: {fileID: 114605391683924392}
   _offset: {x: 5, y: -25, z: 0}
-  fuzziness: 0.6
-  _hangTime: 0.15
+  fuzziness: 4
+  _hangTime: 0.1
 --- !u!114 &114567700478094278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 3bde83c69a119f043a2a449f7a474c1f, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:

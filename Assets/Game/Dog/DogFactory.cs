@@ -35,6 +35,8 @@ public class DogFactory : MonoBehaviour
     private string[] _likeList;
     private int _likeCount;
 
+    public GameObject[] DogGraphics { get { return _dogGraphics; } }
+
     void Awake()
     {
         _nameList = _nameFile.text.Split('\n');
@@ -46,7 +48,7 @@ public class DogFactory : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GenerateDogs());
+        //StartCoroutine(GenerateDogs());
     }
 
     // Temporary until we can generate dogs properly
@@ -68,29 +70,34 @@ public class DogFactory : MonoBehaviour
         }
     }
 
-    void Update()
+    public Dog GetNewDog()
     {
-
+        return SpawnDog(GetNewDogProfile());
     }
 
-    public Dog GetNewDog()
+    public Dog SpawnDog(DogProfile profile)
     {
         var dog = Instantiate(_dog)
             .GetComponent<Dog>();
 
-        var r = UnityEngine.Random.Range(0, _dogGraphics.Length);
-        var graphics = Instantiate(_dogGraphics[r], dog.graphics.transform);
+        dog.Profile = profile;
 
-        dog.Size = GetRandomSize();
-        graphics.transform.localScale = Vector3.one * dog.Size;
+        var graphics = Instantiate(_dogGraphics[profile.Index], dog.graphics.transform);
+        graphics.transform.localScale = Vector3.one * profile.Size;
 
-        dog.Name = GetRandomName();
-        dog.Like = GetRandomLike();
-
-        print(dog.Name + " likes " + dog.Like);
-        
         return dog;
+    }
 
+    public DogProfile GetNewDogProfile()
+    {
+        var profile = new DogProfile
+        {
+            Name = GetRandomName(),
+            Like = GetRandomLike(),
+            Size = GetRandomSize(),
+            Index = UnityEngine.Random.Range(0, _dogGraphics.Length)
+        };
+        return profile;
     }
 
     private float GetRandomSize()

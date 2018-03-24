@@ -43,6 +43,12 @@ public class DogNames : MonoBehaviour {
     }
 
 	void Update () {
+        if (GameController.IsUsingPhone)
+        {
+            hoverDog = null;
+            return;
+        }
+
         ray = _mainCam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.SphereCast(ray, fuzziness, out hit))
@@ -79,6 +85,6 @@ public class DogNames : MonoBehaviour {
 
     void OnGUI()
     {
-        _text.text = (hoverDog == null) ? "" : hoverDog.Name;
+        _text.text = (hoverDog == null) ? "" : hoverDog.Profile.Name;
     }
 }
