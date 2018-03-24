@@ -9,6 +9,7 @@ public class Dog : MonoBehaviour
 
     public float Size { get; set; }
     public string Name { get; set; }
+    public string Like { get; set; }
 
     void Start()
     {

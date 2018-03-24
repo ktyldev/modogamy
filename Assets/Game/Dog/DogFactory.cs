@@ -24,10 +24,16 @@ public class DogFactory : MonoBehaviour
     private string[] _nameList;
     private int _nameCount;
 
+    private string[] _likeList;
+    private int _likeCount;
+
     void Awake()
     {
         _nameList = File.ReadAllLines("Assets/Resources/names.txt");
         _nameCount = _nameList.Length;
+
+        _likeList = File.ReadAllLines("Assets/Resources/likes.txt");
+        _likeCount = _likeList.Length;
     }
 
     void Start()
@@ -63,9 +69,10 @@ public class DogFactory : MonoBehaviour
     {
         var dog = Instantiate(_dog).GetComponent<Dog>();
         dog.Size = GetRandomSize();
-        dog.name = GetRandomName();
+        dog.Name = GetRandomName();
+        dog.Like = GetRandomLike();
 
-        print(dog.name);
+        print(dog.Name + " likes " + dog.Like);
 
         return dog;
 
@@ -90,7 +97,12 @@ public class DogFactory : MonoBehaviour
     private string GetRandomName()
     {
         string name = _nameList[UnityEngine.Random.Range(0, _nameCount)];
-        name = Regex.Replace(name, @"\s+", "");
-        return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name.ToLower());
+        return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name.ToLower().Trim());
+    }
+
+    private string GetRandomLike()
+    {
+        string like = _likeList[UnityEngine.Random.Range(0, _likeCount)];
+        return like.ToLower().Trim();
     }
 }
