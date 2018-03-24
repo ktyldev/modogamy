@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: bfcb93cc3ba456746b70bf462eccadc0
-timeCreated: 1521871093
+guid: f90ceeaeb13529145a75acccbadea2f8
+timeCreated: 1521924057
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Start
     3300000: Start
     4300000: Start
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StartMat
+    second: {fileID: 2100000, guid: b1958119c0602784189ecda4d262515f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

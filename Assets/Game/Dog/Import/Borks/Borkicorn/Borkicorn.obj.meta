@@ -10,10 +10,16 @@ ModelImporter:
     400000: Borkicorn
     400002: //RootNode
     2100000: palette
+    2100002: BorkicornMat
     2300000: Borkicorn
     3300000: Borkicorn
     4300000: Borkicorn
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BorkicornMat
+    second: {fileID: 2100000, guid: 6280efdf56e470940815c9477694f88f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

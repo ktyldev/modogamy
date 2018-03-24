@@ -19,7 +19,12 @@ ModelImporter:
     3300002: Park_1_update
     4300000: Park_1
     4300002: Park_1_update
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Park_1_updateMat
+    second: {fileID: 2100000, guid: 22dc7b24f5e97c04b83cbc325e8e7f2c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

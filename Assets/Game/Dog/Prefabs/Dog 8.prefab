@@ -67,5 +67,6 @@ MonoBehaviour:
   _animationFrames:
   - {fileID: 100000, guid: aed999edcaa4e09458debd1950402db4, type: 3}
   - {fileID: 100000, guid: b4a74020865f2274f8044b2bd98db34a, type: 3}
+  - {fileID: 100000, guid: aed999edcaa4e09458debd1950402db4, type: 3}
   - {fileID: 100000, guid: eebeb3b1118909d439d4537613ec465e, type: 3}
   _frameLength: 0.25
