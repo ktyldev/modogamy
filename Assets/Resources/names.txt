@@ -276,7 +276,6 @@ polly
 pongo
 precious
 prince
-prince/princess
 princess
 rama
 ranger
