@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4261541216940276}
+  - component: {fileID: 114194280676100362}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -170,6 +171,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1659641893263202}
   m_Mesh: {fileID: 4300000, guid: 2e18cd29746197e42984ac47954aea8a, type: 3}
+--- !u!114 &114194280676100362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294577153461286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887e47c7d83492a408e905d246650c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _amplitude: 0.2
 --- !u!114 &114405847845985946
 MonoBehaviour:
   m_ObjectHideFlags: 1
