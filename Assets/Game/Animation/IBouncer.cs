@@ -5,6 +5,5 @@ using UnityEngine.Events;
 
 public interface IBouncer
 {
-    UnityEvent StartBouncing { get; }
-    UnityEvent StopBouncing { get; }
+    bool IsBouncing { get; }
 }

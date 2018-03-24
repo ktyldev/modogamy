@@ -77,7 +77,7 @@ public class DogFactory : MonoBehaviour
             .GetComponent<Dog>();
 
         var r = UnityEngine.Random.Range(0, _dogGraphics.Length);
-        var graphics = Instantiate(_dogGraphics[r], dog.transform);
+        var graphics = Instantiate(_dogGraphics[r], dog.graphics.transform);
 
         dog.Size = GetRandomSize();
         graphics.transform.localScale = Vector3.one * dog.Size;

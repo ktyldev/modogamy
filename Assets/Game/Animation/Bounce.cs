@@ -5,23 +5,35 @@ using UnityEngine;
 public class Bounce : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _bounceController;
+    [SerializeField]
     private float _speed;
     [SerializeField]
     private float _amplitude;
 
+    private IBouncer _bouncer;
     private bool _isBouncing;
     
     // Use this for initialization
     void Start()
     {
-        var bouncer = GetComponentInParent<IBouncer>();
-        if (bouncer == null)
+        _bouncer = _bounceController.GetComponent<IBouncer>();
+        if (_bouncer == null)
             throw new System.Exception();
-
-        bouncer.StartBouncing.AddListener(StartBounce);
-        bouncer.StopBouncing.AddListener(StopBounce);
     }
-    
+
+    private void Update()
+    {
+        if (_bouncer.IsBouncing && !_isBouncing)
+        {
+            StartBounce();
+        }
+        else if (!_bouncer.IsBouncing && _isBouncing)
+        {
+            StopBounce();
+        }
+    }
+
     private void StartBounce()
     {
         _isBouncing = true;
@@ -35,7 +47,7 @@ public class Bounce : MonoBehaviour
     
     private IEnumerator DoBounce()
     {
-        while (_isBouncing)
+        while (_bouncer.IsBouncing)
         {
             for (float e = 0f; e < Mathf.PI; e += Time.deltaTime * _speed)
             {
