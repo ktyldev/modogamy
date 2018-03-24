@@ -45,11 +45,18 @@ public class PlayerController : MonoBehaviour, IBouncer
 
     private void Walk()
     {
+        var movementAxis = Input.GetAxis(GameTags.Horizontal);
         var movement = new Vector3
         {
-            x = Input.GetAxis(GameTags.Horizontal) * _walkSpeed
-        }; 
+            x = movementAxis * _walkSpeed
+        };
 
         transform.Translate(movement * Time.deltaTime);
+
+        if (movementAxis == 0f)
+            return;
+
+        // flip the player in their movement direction
+        transform.localScale = new Vector3((movementAxis < 0f) ? -1 : 1, 1, 1);
     }
 }
