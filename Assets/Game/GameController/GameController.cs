@@ -23,4 +23,12 @@ public class GameController : MonoBehaviour {
         get { return Instance._usingPhone; }
         set { Instance._usingPhone = value; }
     }
+
+    void Update()
+    {
+        if (!_usingPhone && Input.GetKeyDown(KeyCode.Space))
+        {
+            IsUsingPhone = true;
+        }
+    }
 }

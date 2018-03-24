@@ -20,6 +20,8 @@ public class App : MonoBehaviour {
 
     private DogFactory _factory;
 
+    private bool _hasPressed = false;
+
     void LoadProfile(DogProfile profile)
     {
         if (_currentGraphics != null)
@@ -34,24 +36,50 @@ public class App : MonoBehaviour {
         _likesText.text = "likes " + profile.Like;
     }
 
+    void LoadNewProfile()
+    {
+        LoadProfile(_factory.GetNewDogProfile());
+    }
+
     void Start()
     {
         _factory = this.FindInChild<DogFactory>(GameTags.Factories);
-        LoadProfile(_factory.GetNewDogProfile());
+        LoadNewProfile();
+    }
+
+    void DoAccept()
+    {
+        _factory.SpawnDog(_currentProfile);
+        GameController.IsUsingPhone = false;
+        LoadNewProfile();
+    }
+
+    void DoDecline()
+    {
+        LoadNewProfile();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!GameController.IsUsingPhone)
+            return;
+
+        float _axis = Input.GetAxis("Horizontal");
+
+        if (_axis == 0f)
         {
-            if (GameController.IsUsingPhone)
+            _hasPressed = false;
+        }
+        else if (!_hasPressed)
+        {
+            _hasPressed = true;
+            if (_axis > 0f)
             {
-                _factory.SpawnDog(_currentProfile);
+                DoAccept();
             }
             else
             {
-                _currentProfile = _factory.GetNewDogProfile();
-                LoadProfile(_currentProfile);
+                DoDecline();
             }
         }
     }

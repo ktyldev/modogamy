@@ -34,17 +34,7 @@ public class PhoneSlide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (_targetY == _slideInY)
-            {
-                SlideOut();
-            }
-            else if (_targetY == _slideOutY)
-            {
-                SlideIn();
-            }
-        }
+        _targetY = (GameController.IsUsingPhone) ? _slideInY : _slideOutY;
         
         var targetPositon = new Vector3 {
             x = transform.position.x,
@@ -53,17 +43,5 @@ public class PhoneSlide : MonoBehaviour
         };
 
         transform.position = Vector3.Lerp(transform.position, targetPositon, _slideSpeed);
-    }
-
-    public void SlideIn()
-    {
-        GameController.IsUsingPhone = true;
-        _targetY = _slideInY;
-    }
-
-    public void SlideOut()
-    {
-        GameController.IsUsingPhone = false;
-        _targetY = _slideOutY;
     }
 }
