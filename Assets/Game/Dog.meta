@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 74886dc145f31024fa3da286494ad5d0
 folderAsset: yes
 timeCreated: 1521852298
+=======
+guid: da713938a528c404b9ee893802e12059
+folderAsset: yes
+timeCreated: 1521857220
+>>>>>>> Add borkington and quotes
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
