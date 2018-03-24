@@ -344,10 +344,15 @@ namespace UnityEngine.Rendering.PostProcessing
 
         public static void DestroyProfile(PostProcessProfile profile, bool destroyEffects)
         {
-            if (destroyEffects)
+            if (profile != null && destroyEffects)
             {
                 foreach (var effect in profile.settings)
-                    Destroy(effect);
+                {
+                    if (effect != null)
+                    {
+                        Destroy(effect);
+                    }
+                }
             }
 
             Destroy(profile);
