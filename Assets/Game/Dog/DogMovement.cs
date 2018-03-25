@@ -59,7 +59,13 @@ public class DogMovement : MonoBehaviour
 
         StartCoroutine(UpdateTarget());
 
-        _dog.Leave.AddListener(() => _isLeaving = true);
+        _dog.Leave.AddListener(LeaveListener);
+    }
+    
+    void LeaveListener()
+    {
+        _isLeaving = true;
+        _quotes.ShowLeave(_dog);
     }
 
     // Update is called once per frame

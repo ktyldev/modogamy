@@ -215,11 +215,6 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 3bde83c69a119f043a2a449f7a474c1f, type: 2}
-    - target: {fileID: 224454949049420312, guid: 9529d595c9e912849ab00caefd9150a0,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -27.208008
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9529d595c9e912849ab00caefd9150a0, type: 2}
   m_IsPrefabParent: 0
@@ -541,6 +536,11 @@ Prefab:
       propertyPath: _trackedObject
       value: 
       objectReference: {fileID: 1479269132}
+    - target: {fileID: 114060075688021178, guid: ca6dbe24622a6044084590235ac4c252,
+        type: 2}
+      propertyPath: antialiasingMode
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca6dbe24622a6044084590235ac4c252, type: 2}
   m_IsPrefabParent: 0

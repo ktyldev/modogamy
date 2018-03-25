@@ -21,6 +21,11 @@ public class DogQuote : MonoBehaviour
     {
         _text.text = "";
     }
+
+    public void ShowLeave(Dog dog)
+    {
+        StartCoroutine(ShowQuote("goodbye!"));
+    }
     
     public void ShowQuote(Dog dog)
     {

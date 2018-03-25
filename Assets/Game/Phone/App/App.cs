@@ -71,8 +71,8 @@ public class App : MonoBehaviour {
         else
         {
             _sfxManager.PlaySound("Failure");
+            LoadNewProfile();
         }
-        LoadNewProfile();
     }
 
     void DoDecline()
@@ -102,5 +102,7 @@ public class App : MonoBehaviour {
         yield return new WaitForSecondsRealtime(.1f);
         _factory.SpawnDog(_currentProfile);
         GameController.IsUsingPhone = false;
+        yield return new WaitForSecondsRealtime(.1f);
+        LoadNewProfile();
     }
 }
