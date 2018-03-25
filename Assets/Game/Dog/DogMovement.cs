@@ -24,6 +24,9 @@ public class DogMovement : MonoBehaviour
     private float _maxDistanceFromPlayer;
     [SerializeField]
     private float _despawnDistance;
+    [SerializeField]
+    [Range(0, 1)]
+    private float _runToPlayerChance;
 
     [SerializeField]
     [Range(0f, 1f)]
@@ -166,7 +169,16 @@ public class DogMovement : MonoBehaviour
         _targetPosition = new Vector3 { x = _target.position.x + x, z = z };
 
         var targetSpeed = Random.Range(_minSpeed, _maxSpeed);
+
+        // Run to player somtimes :)
+        if (Random.value < _runToPlayerChance)
+        {
+            _targetPosition = _target.position;
+            targetSpeed = _maxSpeed;
+        }
         var targetDir = (_targetPosition - transform.position).normalized;
+
+
         _targetMomentum = targetDir * targetSpeed;
     }
 }

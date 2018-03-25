@@ -90,6 +90,7 @@ MonoBehaviour:
   _minDistanceFromPlayer: 5
   _maxDistanceFromPlayer: 25
   _despawnDistance: 50
+  _runToPlayerChance: 0.1
   _lookLockTime: 0.5
 --- !u!114 &114295577924430774
 MonoBehaviour:
