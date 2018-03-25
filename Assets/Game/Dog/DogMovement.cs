@@ -27,6 +27,9 @@ public class DogMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 1)]
     private float _runToPlayerChance;
+    [SerializeField]
+    private float _ascendAcceleration;
+    private float _ascendSpeed = 0;
 
     [SerializeField]
     [Range(0f, 1f)]
@@ -62,7 +65,14 @@ public class DogMovement : MonoBehaviour
     void Update()
     {
         _momentum = Vector3.Lerp(_momentum, _targetMomentum, _acceleration);
-
+        if (_isLeaving)
+        {
+            _ascendSpeed += _ascendAcceleration * Time.deltaTime;
+            _momentum.y += _ascendSpeed * Time.deltaTime;
+            transform.Translate(_momentum * Time.deltaTime, Space.World);
+            return;
+        }
+        
         SetLookTarget(_targetPosition);
         transform.Translate(_momentum * Time.deltaTime, Space.World);
 
@@ -77,8 +87,7 @@ public class DogMovement : MonoBehaviour
         {
             SetNewTargetPosition();
         }
-
-
+        
         if (Vector3.Distance(_target.position, transform.position) > _despawnDistance)
         {
             _dog.Leave.Invoke();
