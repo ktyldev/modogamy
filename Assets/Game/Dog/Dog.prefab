@@ -83,12 +83,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minSpeed: 1.5
-  _maxSpeed: 5
-  _maxTargetOffset: 10
+  _maxSpeed: 15
+  _maxTargetOffset: 5
   _acceleration: 0.05
   _minDistanceFromTarget: 0.5
   _minDistanceFromPlayer: 0.5
-  _maxDistanceFromPlayer: 10
+  _maxDistanceFromPlayer: 20
+  _despawnDistance: 50
   _lookLockTime: 0.5
 --- !u!114 &114295577924430774
 MonoBehaviour:

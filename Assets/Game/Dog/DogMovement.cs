@@ -21,13 +21,15 @@ public class DogMovement : MonoBehaviour
     private float _minDistanceFromPlayer;
     [SerializeField]
     private float _maxDistanceFromPlayer;
+    [SerializeField]
+    private float _despawnDistance;
 
     [SerializeField]
     [Range(0f, 1f)]
     private float _lookLockTime;
     private float _lookTimer = 0;
 
-    private bool LookIsLocked { get { return _lookTimer > 0f;  } }
+    private bool LookIsLocked { get { return _lookTimer > 0f; } }
 
     // Where the dog wants to run
     private Vector3 _targetMomentum;
@@ -43,7 +45,7 @@ public class DogMovement : MonoBehaviour
     {
         _target = this.Find(GameTags.Player).transform;
 
-        StartCoroutine(SetMoveTarget());
+        StartCoroutine(UpdateTarget());
 
         GetComponent<Dog>().Leave.AddListener(() => _isLeaving = true);
     }
@@ -56,7 +58,13 @@ public class DogMovement : MonoBehaviour
         SetLookTarget(_targetPosition);
         transform.Translate(_momentum * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(_target.position, transform.position) > 20)
+        // Nice hack
+        if (transform.position.z < -1)
+        {
+            SetNewTargetPosition();
+        }
+
+        if (Vector3.Distance(_target.position, transform.position) > _despawnDistance)
         {
             GetComponent<Dog>().Leave.Invoke();
             Destroy(gameObject);
@@ -74,46 +82,73 @@ public class DogMovement : MonoBehaviour
         _lookTimer = Mathf.Clamp(_lookTimer - Time.deltaTime, 0f, _lookLockTime);
     }
 
-    private IEnumerator SetMoveTarget()
+    private IEnumerator UpdateTarget()
     {
         SetNewTargetPosition();
 
         float targetSpeed = _maxSpeed;
+        Vector3 targetDir = Vector3.zero;
 
         while (!_isLeaving)
         {
             var arrivedAtTarget = Vector3.Distance(
-                _target.position, 
+                _target.position,
                 transform.position) < _minDistanceFromPlayer;
             arrivedAtTarget = arrivedAtTarget || Vector3.Distance(
                 _target.position,
                 _targetPosition) < _minDistanceFromTarget;
 
             var tooFarAway = Vector3.Distance(
-                _target.position, 
+                _target.position,
                 transform.position) > _maxDistanceFromPlayer;
 
             if (arrivedAtTarget || tooFarAway)
             {
                 SetNewTargetPosition();
-                targetSpeed = Random.Range(_minSpeed, _maxSpeed) * GetMoveDir();
             }
-
-            // If we are to the right of the target, move left
-            _targetMomentum = new Vector3 { x = targetSpeed };
-
+            
             yield return new WaitForEndOfFrame();
         }
     }
 
-    private float GetMoveDir()
+    private Vector3 GetMoveDir()
     {
-        return (_targetPosition - transform.position).x < 0 ? -1 : 1;
+        return _targetPosition - transform.position;
     }
 
     private void SetNewTargetPosition()
     {
-        var offset = (Random.value * 2 - 1) * _maxTargetOffset;
-        _targetPosition = _target.position + new Vector3 { x = offset };
+        var bounds = GameController.ParkBounds;
+        var z = 0f;
+        var dirToParkCentre = Vector3.zero;
+
+        if (transform.position.x > bounds.min.x && transform.position.x < bounds.max.x)
+        {
+            z = Random.Range(bounds.min.z, bounds.max.z);
+        } 
+        else
+        {
+            dirToParkCentre = (bounds.center - transform.position).normalized;
+        }
+
+        var skewAmount = 0.5f;
+        float skew = 1;
+        if (dirToParkCentre.x > 0)
+        {
+            skew = skewAmount;
+        }
+        else if (dirToParkCentre.x < 0)
+        {
+            skew = 2 - skewAmount;
+        }
+        
+        // skew targets towards center of park
+        var x = (Random.value * 2 - skew) * _maxTargetOffset;
+        _targetPosition = new Vector3 { x = _target.position.x + x, z = z };
+        print("update target:\t" + _targetPosition);
+
+        var targetSpeed = Random.Range(_minSpeed, _maxSpeed);
+        var targetDir = (_targetPosition - transform.position).normalized;
+        _targetMomentum = targetDir * targetSpeed;
     }
 }

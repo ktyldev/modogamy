@@ -866,7 +866,7 @@ Prefab:
     - target: {fileID: 114178179229003428, guid: d274ec4b8ac1170438b252c098cd276e,
         type: 2}
       propertyPath: _parkBounds.m_Extent.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114178179229003428, guid: d274ec4b8ac1170438b252c098cd276e,
         type: 2}
