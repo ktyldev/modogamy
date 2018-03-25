@@ -313,96 +313,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20552dd3190ac1a419f8b161172eb7bc, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &889058030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 889058031}
-  - component: {fileID: 889058033}
-  - component: {fileID: 889058032}
-  - component: {fileID: 889058034}
-  m_Layer: 5
-  m_Name: DogQuote
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &889058031
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 889058030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1584287226}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15, y: 0}
-  m_AnchorMax: {x: 0.85, y: 0.25}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &889058032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 889058030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 1b64694a1795a2142a13d767d4131be3, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1.3
-  m_Text: 'One of the most amazing things about mathematics is the people who do math
-    aren''t usually interested in application because mathematics itself is truly
-    a beautiful art form. It''s structures and patterns and that''s what we love and
-    that''s what we get off on. '
---- !u!222 &889058033
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 889058030}
---- !u!114 &889058034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 889058030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d3b5b06560e5454d81c4f8f02da7807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showQuoteFor: 15
 --- !u!1001 &1071180376
 Prefab:
   m_ObjectHideFlags: 0
@@ -452,6 +362,11 @@ Prefab:
       propertyPath: _quoteFile
       value: 
       objectReference: {fileID: 4900000, guid: 65dc23630644eaa4d9053f1071cc1836, type: 3}
+    - target: {fileID: 114367419876677580, guid: f879f143d88106549b080649f4199557,
+        type: 2}
+      propertyPath: _dogQuotes
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f879f143d88106549b080649f4199557, type: 2}
   m_IsPrefabParent: 0
@@ -620,11 +535,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca6dbe24622a6044084590235ac4c252, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1584287226 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224909573427345012, guid: 9529d595c9e912849ab00caefd9150a0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1927684060}
 --- !u!1001 &1590157718
 Prefab:
   m_ObjectHideFlags: 0
@@ -748,20 +658,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 223872897187468448, guid: 9529d595c9e912849ab00caefd9150a0,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 2074028638}
     - target: {fileID: 223767072826869624, guid: 9529d595c9e912849ab00caefd9150a0,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2074028638}
-    - target: {fileID: 1201191047290478, guid: 9529d595c9e912849ab00caefd9150a0, type: 2}
-      propertyPath: m_TagString
-      value: UI
-      objectReference: {fileID: 0}
+    - target: {fileID: 223872897187468448, guid: 9529d595c9e912849ab00caefd9150a0,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2074028638}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9529d595c9e912849ab00caefd9150a0, type: 2}
   m_IsPrefabParent: 0

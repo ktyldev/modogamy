@@ -87,8 +87,8 @@ MonoBehaviour:
   _maxTargetOffset: 5
   _acceleration: 0.05
   _minDistanceFromTarget: 1
-  _minDistanceFromPlayer: 1.5
-  _maxDistanceFromPlayer: 20
+  _minDistanceFromPlayer: 5
+  _maxDistanceFromPlayer: 25
   _despawnDistance: 50
   _lookLockTime: 0.5
 --- !u!114 &114295577924430774
