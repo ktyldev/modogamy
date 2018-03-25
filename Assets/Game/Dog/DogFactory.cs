@@ -83,11 +83,13 @@ public class DogFactory : MonoBehaviour
 
     public DogProfile GetNewDogProfile()
     {
+        var size = GetRandomSize();
         var profile = new DogProfile
         {
             Name = GetRandomName(),
-            Size = GetRandomSize(),
+            Size = MultiplierFromSize(size),
             Like = GetRandomLike(),
+            Pitch = PitchFromSize(size),
             Quotes = GetRandomQuotes(_dogQuotes),
             Index = UnityEngine.Random.Range(0, _dogGraphics.Length)
         };
@@ -107,7 +109,16 @@ public class DogFactory : MonoBehaviour
         while (p > L);
         k--;
         // now we've got our poisson, let's clamp it
-        return Mathf.Clamp((float)k, _minSize, _maxSize) * _dogScale;
+        return Mathf.Clamp((float)k, _minSize, _maxSize);
+    }
+    private float MultiplierFromSize(float size)
+    {
+        return size * _dogScale;
+    }
+
+    private float PitchFromSize(float size)
+    {
+        return Mathf.Clamp(2.5f - 2 * (size / _maxSize), .5f, 1.5f);
     }
 
     private string GetRandomName()

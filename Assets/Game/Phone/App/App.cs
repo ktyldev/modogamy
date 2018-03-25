@@ -23,7 +23,6 @@ public class App : MonoBehaviour {
     private DogFactory _factory;
     private SFXManager _sfxManager;
 
-    private bool _hasPressed = false;
     private PlayerController _player;
 
     void LoadProfile(DogProfile profile)
@@ -43,7 +42,8 @@ public class App : MonoBehaviour {
     void LoadNewProfile(bool silent = false)
     {
         if (!silent)
-            _sfxManager.PlayPitchedSound(GameTags.Woof);
+            ;
+            //_sfxManager.PlayPitchedSound(GameTags.Woof);
         GetComponentInChildren<Camera>().backgroundColor = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 0.8f, 0.5f);
         _currentProfile = _factory.GetNewDogProfile();
         LoadProfile(_currentProfile);
@@ -77,23 +77,13 @@ public class App : MonoBehaviour {
         if (!GameController.IsUsingPhone)
             return;
 
-        float _axis = Input.GetAxis(GameTags.Horizontal);
-
-        if (_axis == 0f)
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            _hasPressed = false;
+            DoDecline();
         }
-        else if (!_hasPressed)
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            _hasPressed = true;
-            if (_axis > 0f)
-            {
-                DoAccept();
-            }
-            else
-            {
-                DoDecline();
-            }
+            DoAccept();
         }
     }
 }
