@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour {
     private bool _usingPhone = false;
     [SerializeField]
     private Bounds _levelBounds;
+    [SerializeField]
+    private Bounds _parkBounds;
 
     private static GameController Instance { get; set; }
 
@@ -30,6 +32,11 @@ public class GameController : MonoBehaviour {
     public static Bounds LevelBounds
     {
         get { return Instance._levelBounds; }
+    }
+
+    public static Bounds ParkBounds
+    {
+        get { return Instance._parkBounds; }
     }
 
     void Update()
