@@ -14,6 +14,7 @@ public class MusicManager : AudioManager {
 
     [SerializeField]
     private float filterFreq = 400f;
+    private float maxFreq = 22000f;
 
     [SerializeField]
     private GameObject _loop;
@@ -21,8 +22,7 @@ public class MusicManager : AudioManager {
     private GameObject _loopInstance;
     private AudioSource _loopSource;
 
-    private float _targetFreq;
-    private float _currentFreq;
+    private float _currentRatio;
 
     private AudioLowPassFilter _filter;
 
@@ -34,14 +34,21 @@ public class MusicManager : AudioManager {
         _loopSource.Play();
     }
 
+    float ratioToFrequency(float ratio)
+    {
+        float n = 12800f; //spooky number
+        float m = (n * n) / (n + filterFreq);
+        float f = m * (Mathf.Exp(ratio) - 1);
+        return Mathf.Clamp(f + filterFreq, filterFreq, maxFreq);
+    }
+
     void Start() {
-        _targetFreq = _filter.cutoffFrequency;
+        _currentRatio = 1;
     }
 
     void Update()
     {
-        _targetFreq = (GameController.IsUsingPhone) ? filterFreq : 22000f;
-        _currentFreq = Mathf.Lerp(_currentFreq, _targetFreq, 0.1f);
-        _filter.cutoffFrequency = _currentFreq;
+        _currentRatio = Mathf.Lerp(_currentRatio, (GameController.IsUsingPhone) ? 0f : 1f, 0.3f);
+        _filter.cutoffFrequency = ratioToFrequency(_currentRatio);
     }
 }
