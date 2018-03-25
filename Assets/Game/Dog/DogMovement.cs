@@ -34,7 +34,7 @@ public class DogMovement : MonoBehaviour
     private float _lookTimer = 0;
 
     private bool LookIsLocked { get { return _lookTimer > 0f; } }
-    
+
     // Where the dog wants to run
     private Vector3 _targetMomentum;
     private Vector3 _momentum;
@@ -65,7 +65,7 @@ public class DogMovement : MonoBehaviour
 
         SetLookTarget(_targetPosition);
         transform.Translate(_momentum * Time.deltaTime, Space.World);
-        
+
         // Nice hack
         if (transform.position.z < -1)
         {
@@ -101,8 +101,6 @@ public class DogMovement : MonoBehaviour
     {
         SetNewTargetPosition();
 
-        float targetSpeed = _maxSpeed;
-        Vector3 targetDir = Vector3.zero;
 
         while (!_isLeaving)
         {
@@ -127,9 +125,16 @@ public class DogMovement : MonoBehaviour
             {
                 SetNewTargetPosition();
             }
-            
+
             yield return new WaitForEndOfFrame();
         }
+
+        // Run far, far away 
+        var x = Random.value < 0.5 ? -1 : 1 * 100f;
+        var distantTarget = _target.position + new Vector3 { x = x };
+        
+        var targetDir = (distantTarget - transform.position).normalized;
+        _targetMomentum = targetDir * _maxSpeed;
     }
 
     private Vector3 GetMoveDir()
@@ -147,7 +152,7 @@ public class DogMovement : MonoBehaviour
         if (positions.All(p => p.x > bounds.min.x && p.x < bounds.max.x))
         {
             z = Random.Range(bounds.min.z, bounds.max.z);
-        } 
+        }
         else
         {
             dirToParkCentre = (bounds.center - transform.position).normalized;
@@ -163,7 +168,7 @@ public class DogMovement : MonoBehaviour
         {
             skew = 2 - skewAmount;
         }
-        
+
         // skew targets towards center of park
         var x = (Random.value * 2 - skew) * _maxTargetOffset;
         _targetPosition = new Vector3 { x = _target.position.x + x, z = z };
@@ -177,7 +182,6 @@ public class DogMovement : MonoBehaviour
             targetSpeed = _maxSpeed;
         }
         var targetDir = (_targetPosition - transform.position).normalized;
-
 
         _targetMomentum = targetDir * targetSpeed;
     }
