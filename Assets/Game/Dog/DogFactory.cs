@@ -67,11 +67,11 @@ public class DogFactory : MonoBehaviour
     {
         var dog = Instantiate(_dog)
             .GetComponent<Dog>();
-
         dog.Profile = profile;
+
         var offset = new Vector3
         {
-            x = _spawnTargetTransform.position.x + (UnityEngine.Random.value * 2 - 1) * _spawnDistanceFromTarget
+            x = _spawnTargetTransform.position.x + (UnityEngine.Random.value > 0.5f ? -1 : 1) * _spawnDistanceFromTarget
         };
         dog.transform.Translate(offset);
 

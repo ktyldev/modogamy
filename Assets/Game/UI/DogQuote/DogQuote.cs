@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,9 +12,11 @@ public class DogQuote : MonoBehaviour
 
     private Text _text;
     private string _currentQuote;
+    private SFXManager _sfx;
 
     void Start()
     {
+        _sfx = this.Find<SFXManager>(GameTags.Audio);
         _text = GetComponent<Text>();
         _text.text = "";
     }
@@ -30,6 +33,7 @@ public class DogQuote : MonoBehaviour
 
     private IEnumerator ShowQuote(string quote)
     {
+        _sfx.PlayPitchedSound(GameTags.Woof);
         _text.text = quote;
         yield return new WaitForSeconds(_showQuoteFor);
         _text.text = "";

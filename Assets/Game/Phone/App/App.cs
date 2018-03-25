@@ -46,7 +46,7 @@ public class App : MonoBehaviour {
     void LoadNewProfile(bool silent = false)
     {
         if (!silent)
-            _sfxManager.PlayPitchedSound("Woof");
+            _sfxManager.PlayPitchedSound(GameTags.Woof);
         GetComponentInChildren<Camera>().backgroundColor = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 0.8f, 0.5f);
         _currentProfile = _factory.GetNewDogProfile();
         LoadProfile(_currentProfile);
@@ -55,7 +55,7 @@ public class App : MonoBehaviour {
     void Start()
     {
         _factory = this.FindInChild<DogFactory>(GameTags.Factories);
-        _sfxManager = this.Find<SFXManager>(GameTags.AudioManager);
+        _sfxManager = this.Find<SFXManager>(GameTags.Audio);
         LoadNewProfile(true);
     }
 

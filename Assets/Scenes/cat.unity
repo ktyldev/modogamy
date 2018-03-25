@@ -367,6 +367,11 @@ Prefab:
       propertyPath: _dogQuotes
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114367419876677580, guid: f879f143d88106549b080649f4199557,
+        type: 2}
+      propertyPath: _spawnDistanceFromTarget
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f879f143d88106549b080649f4199557, type: 2}
   m_IsPrefabParent: 0
@@ -705,6 +710,16 @@ Prefab:
     - target: {fileID: 4191934340331424, guid: d274ec4b8ac1170438b252c098cd276e, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114178179229003428, guid: d274ec4b8ac1170438b252c098cd276e,
+        type: 2}
+      propertyPath: _parkBounds.m_Center.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114178179229003428, guid: d274ec4b8ac1170438b252c098cd276e,
+        type: 2}
+      propertyPath: _parkBounds.m_Extent.x
+      value: 105
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d274ec4b8ac1170438b252c098cd276e, type: 2}
