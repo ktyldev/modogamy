@@ -16,6 +16,11 @@ public class App : MonoBehaviour {
     private Vector3 _dogAngles;
 
     [SerializeField]
+    private GameObject _matchButton;
+    [SerializeField]
+    private GameObject _rejectButton;
+
+    [SerializeField]
     private Camera _cam;
     private GameObject _currentGraphics;
     private DogProfile _currentProfile;
@@ -39,11 +44,8 @@ public class App : MonoBehaviour {
         _likesText.text = "likes " + profile.Like;
     }
 
-    void LoadNewProfile(bool silent = false)
+    void LoadNewProfile()
     {
-        if (!silent)
-            ;
-            //_sfxManager.PlayPitchedSound(GameTags.Woof);
         GetComponentInChildren<Camera>().backgroundColor = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 0.8f, 0.5f);
         _currentProfile = _factory.GetNewDogProfile();
         LoadProfile(_currentProfile);
@@ -54,21 +56,29 @@ public class App : MonoBehaviour {
         _player = this.Find<PlayerController>(GameTags.Player);
         _factory = this.FindInChild<DogFactory>(GameTags.Factories);
         _sfxManager = this.Find<SFXManager>(GameTags.Audio);
-        LoadNewProfile(true);
+        LoadNewProfile();
     }
 
     void DoAccept()
     {
+        _matchButton.GetComponent<PhoneButton>().Pulse();
         if (_player.Dog == null)
         {
+            _sfxManager.PlaySound("Success");
             _factory.SpawnDog(_currentProfile);
             GameController.IsUsingPhone = false;
+        }
+        else
+        {
+            _sfxManager.PlaySound("Failure");
         }
         LoadNewProfile();
     }
 
     void DoDecline()
     {
+        _rejectButton.GetComponent<PhoneButton>().Pulse();
+        _sfxManager.PlaySound("Failure");
         LoadNewProfile();
     }
 

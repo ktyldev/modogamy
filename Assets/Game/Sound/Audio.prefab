@@ -67,3 +67,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 1243431959098662, guid: 34ad6c50b89add24b930200cb83ade29, type: 2}
+  - {fileID: 1871200766835262, guid: 766493e896261fa47849052074090770, type: 2}
+  - {fileID: 1827236509115304, guid: 62192b960d2a7dd4cb03d259cce8e81d, type: 2}
