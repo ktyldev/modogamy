@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 4902844292059294}
   - component: {fileID: 33892128819709358}
   - component: {fileID: 23386032242254878}
+  - component: {fileID: 114635863721433850}
   m_Layer: 0
   m_Name: River
   m_TagString: Untagged
@@ -80,10 +81,10 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4902844292059294}
-  - component: {fileID: 33892128819709358}
-  - component: {fileID: 23386032242254878}
-  - component: {fileID: 114635863721433850}
+  - component: {fileID: 4655672373322558}
+  - component: {fileID: 4992909477705168}
+  - component: {fileID: 23009703494817940}
+  - component: {fileID: 33767884219083456}
   m_Layer: 0
   m_Name: Park_2_Better
   m_TagString: Untagged
@@ -119,6 +120,19 @@ Transform:
   m_Father: {fileID: 4801641114959894}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4655672373322558
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746778411735976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4801641114959894
 Transform:
   m_ObjectHideFlags: 1
@@ -136,7 +150,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4902844292059294
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 61
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641810164259092}
@@ -196,7 +210,7 @@ MeshRenderer:
   m_SortingOrder: 0
 --- !u!23 &23386032242254878
 MeshRenderer:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 61
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641810164259092}
@@ -237,7 +251,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300000, guid: 6050419dce6553a4cb81b036ac445165, type: 3}
 --- !u!33 &33892128819709358
 MeshFilter:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 61
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641810164259092}

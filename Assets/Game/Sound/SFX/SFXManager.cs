@@ -4,15 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class SoundEffect
-{
-    public string soundName;
-    public GameObject soundObject;
-}
-
 public class SFXManager : AudioManager
 {
-    public List<SoundEffect> sounds;
+    public List<GameObject> sounds;
     protected override string _VolumeKey
     {
         get
@@ -34,7 +28,7 @@ public class SFXManager : AudioManager
 
     public void PlaySound(string soundName)
     {
-        var sound = sounds.SingleOrDefault(o => o.soundName == soundName);
+        var sound = sounds.SingleOrDefault(o => o.name == soundName);
 
         if (sound == null)
         {
@@ -42,10 +36,7 @@ public class SFXManager : AudioManager
             return;
         }
 
-        if (sound.soundObject == null)
-            return;
-
-        PlaySound(sound.soundObject);
+        PlaySound(sound);
     }
 
     public void PlayRandomSound(string soundNameBase, int max)
