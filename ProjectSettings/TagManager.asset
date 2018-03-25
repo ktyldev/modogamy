@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Factories
   - Phone
+  - Sound
+  - UI
   layers:
   - Default
   - TransparentFX

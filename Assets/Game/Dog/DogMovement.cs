@@ -41,12 +41,14 @@ public class DogMovement : MonoBehaviour
 
     private bool _isLeaving;
     private Dog _dog;
+    private DogQuote _quotes;
 
     // Use this for initialization
     void Start()
     {
         _dog = GetComponent<Dog>();
         _target = this.Find(GameTags.Player).transform;
+        _quotes = this.FindInChild<DogQuote>(GameTags.UI);
 
         StartCoroutine(UpdateTarget());
 
@@ -107,9 +109,7 @@ public class DogMovement : MonoBehaviour
 
             if (arrivedAtTarget)
             {
-                var quotes = _dog.Profile.Quotes;
-                int t = Random.Range(0, quotes.Length);
-                print(quotes[t]);
+                _quotes.ShowQuote(_dog);
             }
 
             arrivedAtTarget = arrivedAtTarget || Vector3.Distance(
