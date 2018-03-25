@@ -58,6 +58,7 @@ public class DogMovement : MonoBehaviour
 
         if (Vector3.Distance(_target.position, transform.position) > 20)
         {
+            GetComponent<Dog>().Leave.Invoke();
             Destroy(gameObject);
         }
     }

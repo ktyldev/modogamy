@@ -24,6 +24,10 @@ public class App : MonoBehaviour {
 
     private bool _hasPressed = false;
 
+    [SerializeField]
+    private int _maxDogs = 1;
+    private int _numDogs = 0;
+
     void LoadProfile(DogProfile profile)
     {
         if (_currentGraphics != null)
@@ -53,8 +57,13 @@ public class App : MonoBehaviour {
 
     void DoAccept()
     {
-        _factory.SpawnDog(_currentProfile);
-        GameController.IsUsingPhone = false;
+        if (_numDogs < _maxDogs)
+        {
+            var dog = _factory.SpawnDog(_currentProfile);
+            dog.Leave.AddListener(() => _numDogs--);
+            _numDogs++;
+            GameController.IsUsingPhone = false;
+        }
         LoadNewProfile();
     }
 

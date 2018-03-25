@@ -34,9 +34,9 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
-        if (!_usingPhone && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            IsUsingPhone = true;
+            IsUsingPhone = !IsUsingPhone;
         }
     }
 }
