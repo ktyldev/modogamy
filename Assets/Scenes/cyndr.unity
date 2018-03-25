@@ -113,25 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &198748364 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1651149368916624, guid: 9529d595c9e912849ab00caefd9150a0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1429723203}
---- !u!114 &198748365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 198748364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 5, y: -5}
-  m_UseGraphicAlpha: 1
 --- !u!1 &426450827 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1634273015532122, guid: 20552dd3190ac1a419f8b161172eb7bc,
