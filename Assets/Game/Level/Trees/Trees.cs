@@ -20,15 +20,25 @@ public class Trees : MonoBehaviour
     [SerializeField]
     private float _flowerScale;
     [SerializeField]
+    private GameObject[] _grassTemplates;
+    [SerializeField]
+    private int _grassCount;
+    [SerializeField]
+    private float _grassSeparation;
+    [SerializeField]
+    private float _grassScale;
+    [SerializeField]
     private int _failedAttempts;
 
     private List<Vector3> _treeLocations = new List<Vector3>();
     private List<Vector3> _flowerLocations = new List<Vector3>();
+    private List<Vector3> _grassLocations = new List<Vector3>();
 
     void Start()
     {
         SpawnTrees();
         SpawnFlowers();
+        SpawnGrass();
     }
     
     private void SpawnTrees()
@@ -74,6 +84,28 @@ public class Trees : MonoBehaviour
             var rot = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
             var flower = Instantiate(template, targetLocation, rot);
             flower.transform.localScale = Vector3.one * _flowerScale;
+        }
+    }
+
+    private void SpawnGrass()
+    {
+        var failures = 0;
+        while (failures < _failedAttempts && _grassLocations.Count() < _grassCount)
+        {
+            var targetLocation = GetLocationInPark();
+            if (_grassLocations.Any(p => Vector3.Distance(p, targetLocation) < _grassSeparation))
+            {
+                failures++;
+                continue;
+            }
+
+            _grassLocations.Add(targetLocation);
+            var template = _grassTemplates[Random.Range(0, +_grassTemplates.Length)];
+
+            // get a random rotation
+            var rot = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
+            var grass = Instantiate(template, targetLocation, rot);
+            grass.transform.localScale = Vector3.one * _grassScale;
         }
     }
 

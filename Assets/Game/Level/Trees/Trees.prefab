@@ -69,4 +69,13 @@ MonoBehaviour:
   _flowerCount: 100
   _flowerSeparation: 2
   _flowerScale: 0.2
+  _grassTemplates:
+  - {fileID: 100000, guid: 05ad7e91ff8824a409699ccae0145514, type: 3}
+  - {fileID: 100000, guid: a70fab4b97d484c419cb335c0d8aa29b, type: 3}
+  - {fileID: 100000, guid: 4b7208fe2fe05934eb07c86de25317ba, type: 3}
+  - {fileID: 100000, guid: 5448ce5b1b889f44dae179f3e5da77a8, type: 3}
+  - {fileID: 100000, guid: 430ba61cc0981be479a50e8d05d93b9b, type: 3}
+  _grassCount: 10000
+  _grassSeparation: 0.05
+  _grassScale: 0.05
   _failedAttempts: 20
