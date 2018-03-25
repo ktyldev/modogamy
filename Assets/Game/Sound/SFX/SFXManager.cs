@@ -15,18 +15,19 @@ public class SFXManager : AudioManager
         }
     }
 
-    public void PlaySound(GameObject sound)
+    public void PlaySound(GameObject sound, float pitchModifier = 1f)
     {
         var audioObj = Instantiate(sound, transform);
         var audio = audioObj.GetComponent<AudioSource>();
 
         audio.volume *= Volume;
+        audio.pitch = pitchModifier;
         audio.Play();
 
         Destroy(audioObj, 1f);
     }
 
-    public void PlaySound(string soundName)
+    public void PlaySound(string soundName, float pitchModifier = 1f)
     {
         var sound = sounds.SingleOrDefault(o => o.name == soundName);
 
@@ -36,7 +37,17 @@ public class SFXManager : AudioManager
             return;
         }
 
-        PlaySound(sound);
+        PlaySound(sound, pitchModifier);
+    }
+
+    public void PlayPitchedSound(GameObject sound)
+    {
+        PlaySound(sound, UnityEngine.Random.Range(.5f, 1.5f));
+    }
+
+    public void PlayPitchedSound(string soundName)
+    {
+        PlaySound(soundName, UnityEngine.Random.Range(.5f, 1.5f));
     }
 
     public void PlayRandomSound(string soundNameBase, int max)

@@ -21,6 +21,7 @@ public class App : MonoBehaviour {
     private DogProfile _currentProfile;
 
     private DogFactory _factory;
+    private SFXManager _sfxManager;
 
     private bool _hasPressed = false;
 
@@ -42,8 +43,10 @@ public class App : MonoBehaviour {
         _likesText.text = "likes " + profile.Like;
     }
 
-    void LoadNewProfile()
+    void LoadNewProfile(bool silent = false)
     {
+        if (!silent)
+            _sfxManager.PlayPitchedSound("Woof");
         GetComponentInChildren<Camera>().backgroundColor = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 0.8f, 0.5f);
         _currentProfile = _factory.GetNewDogProfile();
         LoadProfile(_currentProfile);
@@ -52,7 +55,8 @@ public class App : MonoBehaviour {
     void Start()
     {
         _factory = this.FindInChild<DogFactory>(GameTags.Factories);
-        LoadNewProfile();
+        _sfxManager = this.Find<SFXManager>(GameTags.AudioManager);
+        LoadNewProfile(true);
     }
 
     void DoAccept()

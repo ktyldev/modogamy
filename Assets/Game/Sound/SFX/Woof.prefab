@@ -9,32 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1048143979212488}
+  m_RootGameObject: {fileID: 1243431959098662}
   m_IsPrefabParent: 1
---- !u!1 &1048143979212488
+--- !u!1 &1243431959098662
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4997807400975460}
-  - component: {fileID: 82869704499881170}
-  - component: {fileID: 114755696158914600}
-  - component: {fileID: 114661331896441040}
+  - component: {fileID: 4370269172752728}
+  - component: {fileID: 82298329825732414}
   m_Layer: 0
-  m_Name: Audio
-  m_TagString: Sound
+  m_Name: Woof
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4997807400975460
+--- !u!4 &4370269172752728
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048143979212488}
+  m_GameObject: {fileID: 1243431959098662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,16 +40,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82869704499881170
+--- !u!82 &82298329825732414
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048143979212488}
-  m_Enabled: 0
+  m_GameObject: {fileID: 1243431959098662}
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0df3581806d1daa4497d5d9c19fed726, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -122,29 +120,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114661331896441040
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048143979212488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79da6f0c1412aae4dbb7e3fa29d3b5f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filterFreq: 400
-  _loop: {fileID: 1854697317411614, guid: 48151be2a70bc7c42865aa071dff8aba, type: 2}
---- !u!114 &114755696158914600
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048143979212488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7fc9fc335c7a3f459c71721e874107a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 1243431959098662, guid: 34ad6c50b89add24b930200cb83ade29, type: 2}

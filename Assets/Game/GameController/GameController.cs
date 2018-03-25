@@ -45,5 +45,10 @@ public class GameController : MonoBehaviour {
         {
             IsUsingPhone = !IsUsingPhone;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
