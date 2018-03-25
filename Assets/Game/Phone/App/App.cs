@@ -24,10 +24,7 @@ public class App : MonoBehaviour {
     private SFXManager _sfxManager;
 
     private bool _hasPressed = false;
-
-    [SerializeField]
-    private int _maxDogs = 1;
-    private int _numDogs = 0;
+    private PlayerController _player;
 
     void LoadProfile(DogProfile profile)
     {
@@ -54,6 +51,7 @@ public class App : MonoBehaviour {
 
     void Start()
     {
+        _player = this.Find<PlayerController>(GameTags.Player);
         _factory = this.FindInChild<DogFactory>(GameTags.Factories);
         _sfxManager = this.Find<SFXManager>(GameTags.Audio);
         LoadNewProfile(true);
@@ -61,11 +59,9 @@ public class App : MonoBehaviour {
 
     void DoAccept()
     {
-        if (_numDogs < _maxDogs)
+        if (_player.Dog == null)
         {
-            var dog = _factory.SpawnDog(_currentProfile);
-            dog.Leave.AddListener(() => _numDogs--);
-            _numDogs++;
+            _factory.SpawnDog(_currentProfile);
             GameController.IsUsingPhone = false;
         }
         LoadNewProfile();
@@ -81,7 +77,7 @@ public class App : MonoBehaviour {
         if (!GameController.IsUsingPhone)
             return;
 
-        float _axis = Input.GetAxis("Horizontal");
+        float _axis = Input.GetAxis(GameTags.Horizontal);
 
         if (_axis == 0f)
         {

@@ -21,8 +21,6 @@ public class CameraController : MonoBehaviour
         _player = _trackedObject.GetComponent<PlayerController>();
         if (_player == null)
             throw new System.Exception();
-
-
     }
     
     void LateUpdate()
@@ -38,10 +36,8 @@ public class CameraController : MonoBehaviour
         {
             targetPosition = _trackedObject.transform.position;
         }
-
-        targetPosition += _offset;
-
-        transform.position = Vector3.Lerp(transform.transform.position, targetPosition, _sensitivity);
-        transform.LookAt(_trackedObject.transform.position + Vector3.up * _lookOffsetV);
+        
+        transform.position = Vector3.Lerp(transform.transform.position, targetPosition + _offset, _sensitivity);
+        transform.LookAt(targetPosition + Vector3.up * _lookOffsetV);
     }
 }
