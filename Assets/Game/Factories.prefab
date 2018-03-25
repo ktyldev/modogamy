@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnTargetTransform: {fileID: 0}
+  _spawnDistanceFromTarget: 0
   _dog: {fileID: 1865129357992936, guid: e8c47aaed2680d348a729cc52c8b9df5, type: 2}
   _dogGraphics:
   - {fileID: 1568480095170162, guid: a194c7df74e49664b8c9503f4818cbe2, type: 2}
