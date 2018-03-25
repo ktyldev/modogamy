@@ -15,6 +15,8 @@ public class App : MonoBehaviour {
     [SerializeField]
     private Vector3 _dogAngles;
 
+    [SerializeField]
+    private Camera _cam;
     private GameObject _currentGraphics;
     private DogProfile _currentProfile;
 
@@ -38,6 +40,7 @@ public class App : MonoBehaviour {
 
     void LoadNewProfile()
     {
+        GetComponentInChildren<Camera>().backgroundColor = Color.HSVToRGB(UnityEngine.Random.Range(0f, 1f), 0.8f, 0.5f);
         _currentProfile = _factory.GetNewDogProfile();
         LoadProfile(_currentProfile);
     }
