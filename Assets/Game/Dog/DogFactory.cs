@@ -13,6 +13,8 @@ public class DogFactory : MonoBehaviour
     [SerializeField]
     private Transform _spawnTargetTransform;
     [SerializeField]
+    private float _spawnDistanceFromTarget;
+    [SerializeField]
     private GameObject _dog;
     [SerializeField]
     private GameObject[] _dogGraphics;
@@ -46,30 +48,6 @@ public class DogFactory : MonoBehaviour
         _likeCount = _likeList.Length;
     }
 
-    void Start()
-    {
-        //StartCoroutine(GenerateDogs());
-    }
-
-    // Temporary until we can generate dogs properly
-    private IEnumerator GenerateDogs()
-    {
-        var delay = 6;
-        var spawnOffset = 20;
-
-        while (true)
-        {
-            var dog = GetNewDog();
-            var offset = new Vector3
-            {
-                x = _spawnTargetTransform.position.x + (UnityEngine.Random.value * 2 - 1) * spawnOffset
-            };
-
-            dog.transform.Translate(offset);
-            yield return new WaitForSeconds(delay);
-        }
-    }
-
     public Dog GetNewDog()
     {
         return SpawnDog(GetNewDogProfile());
@@ -81,6 +59,11 @@ public class DogFactory : MonoBehaviour
             .GetComponent<Dog>();
 
         dog.Profile = profile;
+        var offset = new Vector3
+        {
+            x = _spawnTargetTransform.position.x + (UnityEngine.Random.value * 2 - 1) * _spawnDistanceFromTarget
+        };
+        dog.transform.Translate(offset);
 
         var graphics = Instantiate(_dogGraphics[profile.Index], dog.graphics.transform);
         graphics.transform.localScale = Vector3.one * profile.Size;
