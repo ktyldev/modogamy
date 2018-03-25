@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529870898880392}
   m_LocalRotation: {x: 0.102011256, y: 0, z: 0, w: 0.9947832}
-  m_LocalPosition: {x: 0, y: 8.7, z: -20.6}
+  m_LocalPosition: {x: 0, y: 7, z: -20.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trackedObject: {fileID: 0}
   _sensitivity: 0.02
+  _lookOffsetV: 1
 --- !u!114 &114060075688021178
 MonoBehaviour:
   m_ObjectHideFlags: 1
