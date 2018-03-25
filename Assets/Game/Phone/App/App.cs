@@ -37,8 +37,9 @@ public class App : MonoBehaviour {
 
         _currentGraphics = Instantiate(_factory.DogGraphics[profile.Index], transform);
         _currentGraphics.transform.position += _dogOffset;
-        _currentGraphics.transform.eulerAngles = _dogAngles;
+        _currentGraphics.transform.eulerAngles = _dogAngles + new Vector3 { y = UnityEngine.Random.Range(-90f, 90f) };
         _currentGraphics.transform.localScale = Vector3.one * .1f;
+        //_cam.transform.LookAt(_currentGraphics.transform);
 
         _nameText.text = profile.Name;
         _likesText.text = "likes " + profile.Like;

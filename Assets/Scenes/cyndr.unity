@@ -353,6 +353,16 @@ Prefab:
       propertyPath: _rejectButton
       value: 
       objectReference: {fileID: 426450827}
+    - target: {fileID: 114118302445728210, guid: 75bdc31b8aba10644a6254e9daec1f72,
+        type: 2}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 1579977434}
+    - target: {fileID: 20169152150259238, guid: 75bdc31b8aba10644a6254e9daec1f72,
+        type: 2}
+      propertyPath: field of view
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75bdc31b8aba10644a6254e9daec1f72, type: 2}
   m_IsPrefabParent: 0
@@ -539,6 +549,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1848673935184638, guid: 9a7bf30f708a8244da8dadb7f83511cd,
     type: 2}
   m_PrefabInternal: {fileID: 1964930502}
+--- !u!20 &1579977434 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20169152150259238, guid: 75bdc31b8aba10644a6254e9daec1f72,
+    type: 2}
+  m_PrefabInternal: {fileID: 715123827}
 --- !u!1001 &1590157718
 Prefab:
   m_ObjectHideFlags: 0
