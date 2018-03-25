@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38076553, g: 0.5916663, b: 0.8062197, a: 1}
+  m_IndirectSpecularColor: {r: 0.13272268, g: 0.3207071, b: 0.5993519, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -348,16 +348,6 @@ Prefab:
       propertyPath: _rejectButton
       value: 
       objectReference: {fileID: 426450827}
-    - target: {fileID: 114118302445728210, guid: 75bdc31b8aba10644a6254e9daec1f72,
-        type: 2}
-      propertyPath: _cam
-      value: 
-      objectReference: {fileID: 1579977434}
-    - target: {fileID: 20169152150259238, guid: 75bdc31b8aba10644a6254e9daec1f72,
-        type: 2}
-      propertyPath: field of view
-      value: 80
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75bdc31b8aba10644a6254e9daec1f72, type: 2}
   m_IsPrefabParent: 0
@@ -536,11 +526,6 @@ Prefab:
       propertyPath: _trackedObject
       value: 
       objectReference: {fileID: 1479269132}
-    - target: {fileID: 114060075688021178, guid: ca6dbe24622a6044084590235ac4c252,
-        type: 2}
-      propertyPath: antialiasingMode
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca6dbe24622a6044084590235ac4c252, type: 2}
   m_IsPrefabParent: 0
@@ -549,11 +534,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1848673935184638, guid: 9a7bf30f708a8244da8dadb7f83511cd,
     type: 2}
   m_PrefabInternal: {fileID: 1964930502}
---- !u!20 &1579977434 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20169152150259238, guid: 75bdc31b8aba10644a6254e9daec1f72,
-    type: 2}
-  m_PrefabInternal: {fileID: 715123827}
 --- !u!1001 &1590157718
 Prefab:
   m_ObjectHideFlags: 0

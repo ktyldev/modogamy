@@ -19,6 +19,8 @@ public class App : MonoBehaviour {
     private GameObject _matchButton;
     [SerializeField]
     private GameObject _rejectButton;
+    [SerializeField]
+    private GameObject _warning;
 
     [SerializeField]
     private Camera _cam;
@@ -29,6 +31,7 @@ public class App : MonoBehaviour {
     private SFXManager _sfxManager;
 
     private PlayerController _player;
+    private bool _dogCanSpawn { get { return _player.Dog == null; } }
 
     void LoadProfile(DogProfile profile)
     {
@@ -63,7 +66,7 @@ public class App : MonoBehaviour {
     void DoAccept()
     {
         _matchButton.GetComponent<PhoneButton>().Pulse();
-        if (_player.Dog == null)
+        if (_dogCanSpawn)
         {
             _sfxManager.PlaySound("Success");
             StartCoroutine(SpawnDog());
@@ -95,6 +98,11 @@ public class App : MonoBehaviour {
         {
             DoAccept();
         }
+    }
+
+    void OnGUI()
+    {
+        _warning.gameObject.SetActive(!_dogCanSpawn);
     }
 
     IEnumerator SpawnDog()
