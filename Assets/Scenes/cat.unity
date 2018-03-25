@@ -856,12 +856,12 @@ Prefab:
     - target: {fileID: 114178179229003428, guid: d274ec4b8ac1170438b252c098cd276e,
         type: 2}
       propertyPath: _parkBounds.m_Center.x
-      value: 190
+      value: 185
       objectReference: {fileID: 0}
     - target: {fileID: 114178179229003428, guid: d274ec4b8ac1170438b252c098cd276e,
         type: 2}
       propertyPath: _parkBounds.m_Extent.x
-      value: 110
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114178179229003428, guid: d274ec4b8ac1170438b252c098cd276e,
         type: 2}

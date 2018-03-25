@@ -1,6 +1,7 @@
 ﻿using Extensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Dog))]
@@ -57,12 +58,19 @@ public class DogMovement : MonoBehaviour
 
         SetLookTarget(_targetPosition);
         transform.Translate(_momentum * Time.deltaTime, Space.World);
-
+        
         // Nice hack
         if (transform.position.z < -1)
         {
             SetNewTargetPosition();
         }
+
+        var bounds = GameController.ParkBounds;
+        if (_target.transform.position.x < bounds.min.x || _target.transform.position.x > bounds.max.x)
+        {
+            SetNewTargetPosition();
+        }
+
 
         if (Vector3.Distance(_target.position, transform.position) > _despawnDistance)
         {
@@ -122,7 +130,8 @@ public class DogMovement : MonoBehaviour
         var z = 0f;
         var dirToParkCentre = Vector3.zero;
 
-        if (transform.position.x > bounds.min.x && transform.position.x < bounds.max.x)
+        var positions = new[] { _target.transform.position, transform.position };
+        if (positions.All(p => p.x > bounds.min.x && p.x < bounds.max.x))
         {
             z = Random.Range(bounds.min.z, bounds.max.z);
         } 
