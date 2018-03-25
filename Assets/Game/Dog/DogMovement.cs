@@ -44,6 +44,7 @@ public class DogMovement : MonoBehaviour
 
     private Transform _target;
     private Vector3 _targetPosition;
+    private bool _canSetTarget;
 
     private bool _isLeaving;
     private Dog _dog;
@@ -79,7 +80,9 @@ public class DogMovement : MonoBehaviour
         // Nice hack
         if (transform.position.z < -1)
         {
+            _canSetTarget = true;
             SetNewTargetPosition();
+            return;
         }
 
         var bounds = GameController.ParkBounds;
@@ -90,7 +93,6 @@ public class DogMovement : MonoBehaviour
         
         if (Vector3.Distance(_target.position, transform.position) > _despawnDistance)
         {
-            _dog.Leave.Invoke();
             Destroy(gameObject);
         }
     }
@@ -113,28 +115,26 @@ public class DogMovement : MonoBehaviour
 
         while (!_isLeaving)
         {
-            var arrivedAtTarget = Vector3.Distance(
+            var nearPlayer = Vector3.Distance(
                 _target.position,
                 transform.position) < _minDistanceFromPlayer;
 
-            if (arrivedAtTarget)
+            if (nearPlayer)
             {
                 _quotes.ShowQuote(_dog);
             }
 
-            arrivedAtTarget = arrivedAtTarget || Vector3.Distance(
-                _target.position,
+            var nearTarget = Vector3.Distance(
+                transform.position,
                 _targetPosition) < _minDistanceFromTarget;
-
+            
             var tooFarAway = Vector3.Distance(
                 _target.position,
                 transform.position) > _maxDistanceFromPlayer;
 
-            if (arrivedAtTarget || tooFarAway)
-            {
-                SetNewTargetPosition();
-            }
-
+            _canSetTarget = nearTarget || tooFarAway;
+            SetNewTargetPosition();
+            
             yield return new WaitForEndOfFrame();
         }
 
@@ -153,6 +153,9 @@ public class DogMovement : MonoBehaviour
 
     private void SetNewTargetPosition()
     {
+        if (!_canSetTarget)
+            return;
+
         var bounds = GameController.ParkBounds;
         var z = 0f;
         var dirToParkCentre = Vector3.zero;
