@@ -49,7 +49,8 @@ public class Trees : MonoBehaviour
             var treeTemplate = _treeTemplates[Random.Range(0, _treeTemplates.Length)];
 
             // get a random rotation
-            var rot = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
+            //var rot = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
+            var rot = Quaternion.AngleAxis(Random.Range(0, 4) * 90, Vector3.up);
             Instantiate(treeTemplate, targetLocation, rot);
         }
     }
