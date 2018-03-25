@@ -101,4 +101,4 @@ MonoBehaviour:
   _dogQuotes: 15
   _nameFile: {fileID: 4900000, guid: 34b8195e7fda11947bfc8315a223901e, type: 3}
   _likeFile: {fileID: 4900000, guid: ad4c0b67ea27fbe47ad1d6de17918801, type: 3}
-  _quoteFile: {fileID: 4900000, guid: 65dc23630644eaa4d9053f1071cc1836, type: 3}
+  _quoteFile: {fileID: 4900000, guid: 0dce3858732c31e44a188489e6ef5b7b, type: 3}
