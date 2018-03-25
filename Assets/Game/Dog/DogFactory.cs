@@ -39,6 +39,10 @@ public class DogFactory : MonoBehaviour
     private TextAsset _likeFile;
     private string[] _likeList;
     private int _likeCount;
+    [SerializeField]
+    private int _maxLikeLength = 50;
+    [SerializeField]
+    private float _doubleLikeChance = .4f;
 
     [SerializeField]
     private TextAsset _quoteFile;
@@ -88,7 +92,7 @@ public class DogFactory : MonoBehaviour
         {
             Name = GetRandomName(),
             Size = MultiplierFromSize(size),
-            Like = GetRandomLike(),
+            Like = GetLikeString(),
             Pitch = PitchFromSize(size),
             Quotes = GetRandomQuotes(_dogQuotes),
             Index = GetRandomIndex()
@@ -158,5 +162,25 @@ public class DogFactory : MonoBehaviour
         return _quotes[UnityEngine.Random.Range(0, _quotes.Length)]
             .ToLower()
             .Trim();
+    }
+
+    private string GetLikeString()
+    {
+        if (UnityEngine.Random.Range(0f, 1f) < _doubleLikeChance)
+        {
+            string likeString;
+            while (true)
+            {
+                likeString = string.Format("{0} and {1}", GetRandomLike(), GetRandomLike());
+                if (likeString.Length < _maxLikeLength)
+                {
+                    return likeString;
+                }
+            }
+        }
+        else
+        {
+            return GetRandomLike();
+        }
     }
 }
