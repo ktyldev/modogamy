@@ -8,14 +8,14 @@ public class PlayerController : MonoBehaviour, IBouncer
     [SerializeField]
     private float _walkSpeed;
     
-    private bool HasInput { get { return Input.GetAxis(GameTags.Horizontal) != 0; } }
+    private bool HasInput { get { return (Input.GetAxis(GameTags.Horizontal) != 0) && !GameController.IsIntro; } }
     public bool IsBouncing { get { return HasInput; } }
 
     public Dog Dog { get; set; }
 
     void Update()
     {
-        if (GameController.IsUsingPhone)
+        if (GameController.IsUsingPhone || GameController.IsIntro)
             return;
         
         Walk();

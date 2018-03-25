@@ -6,6 +6,7 @@ using Extensions;
 public class GameController : MonoBehaviour {
     [SerializeField]
     private bool _usingPhone = false;
+    private bool _intro = true;
     [SerializeField]
     private Bounds _levelBounds;
     [SerializeField]
@@ -23,10 +24,28 @@ public class GameController : MonoBehaviour {
         Instance = this;
     }
 
+    private void Start()
+    {
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame()
+    {
+        _intro = true;
+        yield return new WaitForSeconds(3f);
+        _intro = false;
+    }
+
     public static bool IsUsingPhone
     {
         get { return Instance._usingPhone; }
         set { Instance._usingPhone = value; }
+    }
+
+    public static bool IsIntro
+    {
+        get { return Instance._intro; }
+        set { Instance._intro = value; }
     }
     
     public static Bounds LevelBounds
@@ -41,6 +60,9 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
+        if (IsIntro)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             IsUsingPhone = !IsUsingPhone;
