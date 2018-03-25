@@ -91,7 +91,7 @@ public class DogFactory : MonoBehaviour
             Like = GetRandomLike(),
             Pitch = PitchFromSize(size),
             Quotes = GetRandomQuotes(_dogQuotes),
-            Index = UnityEngine.Random.Range(0, _dogGraphics.Length)
+            Index = GetRandomIndex()
         };
         return profile;
     }
@@ -111,6 +111,15 @@ public class DogFactory : MonoBehaviour
         // now we've got our poisson, let's clamp it
         return Mathf.Clamp((float)k, _minSize, _maxSize);
     }
+
+    private int GetRandomIndex()
+    {
+        int max = _dogGraphics.Length;
+        if (UnityEngine.Random.Range(0f, 1f) < 0.01337f)
+            return max - 1;
+        return UnityEngine.Random.Range(0, max - 1);
+    }
+
     private float MultiplierFromSize(float size)
     {
         return size * _dogScale;
