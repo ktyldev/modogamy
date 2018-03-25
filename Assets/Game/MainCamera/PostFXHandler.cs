@@ -16,7 +16,7 @@ public class PostFXHandler : MonoBehaviour {
     [SerializeField]
     [Range(.1f, 32f)]
     private float _phoneAperture;
-    private float _delta = 0.01f;
+    private float _delta = 0.015f;
 
     private float _targetAperture;
 
