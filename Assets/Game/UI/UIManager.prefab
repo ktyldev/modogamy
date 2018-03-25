@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 222901450674236640}
   - component: {fileID: 114119618050001204}
   - component: {fileID: 114840186659404568}
+  - component: {fileID: 114550132613581284}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: UI
@@ -48,6 +49,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1461298607363492
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224207137575926804}
+  - component: {fileID: 222688236330386050}
+  - component: {fileID: 114132154793468986}
+  m_Layer: 5
+  m_Name: DogQuote
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1509586873226676
 GameObject:
   m_ObjectHideFlags: 1
@@ -59,7 +77,7 @@ GameObject:
   - component: {fileID: 222120145791971288}
   - component: {fileID: 114517537556402008}
   m_Layer: 5
-  m_Name: DogQuote
+  m_Name: PressStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +230,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minDisplayTime: 4
   _maxDisplayTime: 20
-  _text: {fileID: 114517537556402008}
+  _text: {fileID: 114132154793468986}
+--- !u!114 &114132154793468986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461298607363492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1b64694a1795a2142a13d767d4131be3, type: 3}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.3
+  m_Text: 'One of the most amazing things about mathematics is the people who do math
+    aren''t usually interested in application because mathematics itself is truly
+    a beautiful art form. It''s structures and patterns and that''s what we love and
+    that''s what we get off on. '
 --- !u!114 &114309904798726848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,10 +404,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.3
-  m_Text: 'One of the most amazing things about mathematics is the people who do math
-    aren''t usually interested in application because mathematics itself is truly
-    a beautiful art form. It''s structures and patterns and that''s what we love and
-    that''s what we get off on. '
+  m_Text: 'press [space] to start
+
+'
+--- !u!114 &114550132613581284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201191047290478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217ff9a8c9a1228458237a4f7811468f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _start: {fileID: 1509586873226676}
 --- !u!114 &114567700478094278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -448,7 +513,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _welcome: {fileID: 1651149368916624}
-  timeTillFade: 3
 --- !u!114 &114886686067271728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -506,6 +570,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651149368916624}
+--- !u!222 &222688236330386050
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461298607363492}
 --- !u!222 &222901450674236640
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -570,6 +640,24 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224207137575926804
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461298607363492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224524411872490402}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.15, y: 0}
+  m_AnchorMax: {x: 0.85, y: 0.25}
+  m_AnchoredPosition: {x: 0, y: -27.208008}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224255489758070268
@@ -639,11 +727,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224524411872490402}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0}
   m_AnchorMax: {x: 0.85, y: 0.25}
-  m_AnchoredPosition: {x: 0, y: -27.208008}
+  m_AnchoredPosition: {x: 0, y: 275}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224524411872490402
@@ -658,6 +746,7 @@ RectTransform:
   m_Children:
   - {fileID: 224097815677939246}
   - {fileID: 224727544730395408}
+  - {fileID: 224207137575926804}
   - {fileID: 224513819998045568}
   m_Father: {fileID: 224303772656190004}
   m_RootOrder: 1

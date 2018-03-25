@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using Extensions;
 
 public class PostFXHandler : MonoBehaviour {
     private PostProcessVolume _volume;
     private DepthOfField _dof;
+
+    private GameController _controller;
 
     [SerializeField]
     [Range(.1f, 32f)]
@@ -27,7 +30,9 @@ public class PostFXHandler : MonoBehaviour {
 
         _volume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, _dof);
         _volume.isGlobal = true;
-        StartCoroutine(SpeedUp());
+
+        _controller = this.Find<GameController>(GameTags.GameController);
+        _controller.StartGame.AddListener(() => StartCoroutine(SpeedUp()));
 	}
 	
 
@@ -47,8 +52,7 @@ public class PostFXHandler : MonoBehaviour {
 
     IEnumerator SpeedUp()
     {
-        _delta = 0.01f;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         _delta = 0.2f;
     }
 }

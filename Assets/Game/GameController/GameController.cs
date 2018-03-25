@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Extensions;
 
 public class GameController : MonoBehaviour {
@@ -14,6 +15,8 @@ public class GameController : MonoBehaviour {
 
     private static GameController Instance { get; set; }
 
+    public UnityEvent StartGame { get; set; }
+
     void Awake()
     {
         if (Instance != null)
@@ -22,18 +25,7 @@ public class GameController : MonoBehaviour {
         }
 
         Instance = this;
-    }
-
-    private void Start()
-    {
-        StartCoroutine(StartGame());
-    }
-
-    IEnumerator StartGame()
-    {
-        _intro = true;
-        yield return new WaitForSeconds(3f);
-        _intro = false;
+        StartGame = new UnityEvent();
     }
 
     public static bool IsUsingPhone
@@ -60,12 +52,17 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
-        if (IsIntro)
-            return;
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            IsUsingPhone = !IsUsingPhone;
+            if (IsIntro)
+            {
+                _intro = false;
+                StartGame.Invoke();
+            }
+            else
+            {
+                IsUsingPhone = !IsUsingPhone;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

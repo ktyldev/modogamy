@@ -12,6 +12,7 @@ public class GameTags
     public const string Audio = "Sound";
     public const string UI = "UI";
     public const string Camera = "MainCamera";
+    public const string GameController = "GameController";
 
     public const string MusicVolume = "Music Volume";
     public const string SFXVolume = "FX Volume";
