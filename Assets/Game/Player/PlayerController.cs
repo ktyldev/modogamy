@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour, IBouncer
     
     private bool HasInput { get { return Input.GetAxis(GameTags.Horizontal) != 0; } }
     public bool IsBouncing { get { return HasInput; } }
-    
+
+    public Dog Dog { get; set; }
+
     void Update()
     {
         if (GameController.IsUsingPhone)

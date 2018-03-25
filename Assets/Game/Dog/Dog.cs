@@ -35,6 +35,13 @@ public class Dog : MonoBehaviour, IBouncer
 
     void Start()
     {
+        var player = this.Find<PlayerController>(GameTags.Player);
+        if (player.Dog != null)
+            throw new System.Exception();
+
+        player.Dog = this;
+        Leave.AddListener(() => player.Dog = null);
+
         StartCoroutine(WalkTimer());
     }
 
