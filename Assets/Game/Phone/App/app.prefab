@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1450561913024544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalPosition: {x: 0, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4401721925153118}
@@ -191,6 +191,8 @@ MonoBehaviour:
   _likesText: {fileID: 114794628101566718}
   _dogOffset: {x: 0, y: -1.4, z: 2}
   _dogAngles: {x: 0, y: -90, z: 0}
+  _cam: {fileID: 0}
+  _maxDogs: 1
 --- !u!114 &114331444907074798
 MonoBehaviour:
   m_ObjectHideFlags: 1
