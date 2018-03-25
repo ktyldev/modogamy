@@ -22,6 +22,7 @@ public class PostFXHandler : MonoBehaviour {
         _dof.focusDistance.Override(.1f);
         _dof.focalLength.Override(7f);
         _dof.kernelSize.Override(KernelSize.Medium);
+        _dof.aperture.Override(_normalAperture);
 
         _volume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, _dof);
         _volume.isGlobal = true;
