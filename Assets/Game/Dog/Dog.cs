@@ -10,6 +10,7 @@ public struct DogProfile
     public float Size { get; set; }
     public string Like { get; set; }
     public int Index { get; set; }
+    public string[] Quotes { get; set; }
 }
 
 public class Dog : MonoBehaviour, IBouncer

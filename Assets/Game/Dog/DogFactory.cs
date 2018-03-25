@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
+using System.Linq;
 
 public class DogFactory : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class DogFactory : MonoBehaviour
     private double _sizeLambda = 25;
     [SerializeField]
     private float _dogScale = 0.05f;
+    [SerializeField]
+    private int _dogQuotes = 5;
 
     [SerializeField]
     private TextAsset _nameFile;
@@ -37,6 +40,10 @@ public class DogFactory : MonoBehaviour
     private string[] _likeList;
     private int _likeCount;
 
+    [SerializeField]
+    private TextAsset _quoteFile;
+    private string[] _quotes;
+
     public GameObject[] DogGraphics { get { return _dogGraphics; } }
 
     void Awake()
@@ -46,6 +53,9 @@ public class DogFactory : MonoBehaviour
 
         _likeList = _likeFile.text.Split('\n');
         _likeCount = _likeList.Length;
+
+        _quotes = _quoteFile.text
+            .Split('\n');
     }
 
     public Dog GetNewDog()
@@ -78,6 +88,7 @@ public class DogFactory : MonoBehaviour
             Name = GetRandomName(),
             Size = GetRandomSize(),
             Like = GetRandomLike(),
+            Quotes = GetRandomQuotes(_dogQuotes),
             Index = UnityEngine.Random.Range(0, _dogGraphics.Length)
         };
         return profile;
@@ -109,5 +120,23 @@ public class DogFactory : MonoBehaviour
     {
         string like = _likeList[UnityEngine.Random.Range(0, _likeCount)];
         return like.ToLower().Trim();
+    }
+
+    private string[] GetRandomQuotes(int count)
+    {
+        var result = new string[count];
+        for (int i = 0; i < count; i++)
+        {
+            result[i] = GetRandomQuote();
+        }
+
+        return result;
+    }
+
+    private string GetRandomQuote()
+    {
+        return _quotes[UnityEngine.Random.Range(0, _quotes.Length)]
+            .ToLower()
+            .Trim();
     }
 }
