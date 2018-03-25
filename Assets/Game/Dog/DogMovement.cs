@@ -125,7 +125,8 @@ public class DogMovement : MonoBehaviour
                 _target.position,
                 transform.position) < _minDistanceFromPlayer;
 
-            if (nearPlayer)
+            var bounds = GameController.ParkBounds;
+            if (nearPlayer && _target.transform.position.x > bounds.min.x && _target.transform.position.x < bounds.max.x)
             {
                 _quotes.ShowQuote(_dog);
             }
