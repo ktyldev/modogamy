@@ -66,8 +66,7 @@ public class App : MonoBehaviour {
         if (_player.Dog == null)
         {
             _sfxManager.PlaySound("Success");
-            _factory.SpawnDog(_currentProfile);
-            GameController.IsUsingPhone = false;
+            StartCoroutine(SpawnDog());
         }
         else
         {
@@ -96,5 +95,12 @@ public class App : MonoBehaviour {
         {
             DoAccept();
         }
+    }
+
+    IEnumerator SpawnDog()
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        _factory.SpawnDog(_currentProfile);
+        GameController.IsUsingPhone = false;
     }
 }
