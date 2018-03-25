@@ -1,24 +1,24 @@
 fileFormatVersion: 2
-guid: 59c0574e23a7cee45b2dbd24b265e75e
-timeCreated: 1521928760
+guid: c33ba50516ee37645acd346bdc38f96a
+timeCreated: 1521935722
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: TransitionNew
-    100002: //RootNode
-    400000: TransitionNew
-    400002: //RootNode
-    2100000: TransitionNewMat
-    2300000: TransitionNew
-    3300000: TransitionNew
-    4300000: TransitionNew
+    100000: //RootNode
+    100002: Park_1_update
+    400000: //RootNode
+    400002: Park_1_update
+    2100000: Park_1_updateMat
+    2300000: Park_1_update
+    3300000: Park_1_update
+    4300000: Park_1_update
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TransitionNewMat
-    second: {fileID: 2100000, guid: 9d2268e854dc286488a6d622cffb16c7, type: 2}
+      name: Park_1_updateMat
+    second: {fileID: 2100000, guid: 24969a99679b63446ba1c7d42c85f970, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

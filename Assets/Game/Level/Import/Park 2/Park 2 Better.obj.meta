@@ -1,19 +1,24 @@
 fileFormatVersion: 2
-guid: bfb06fb54b1e87649b2cf9d971623c0a
-timeCreated: 1521870889
+guid: 6050419dce6553a4cb81b036ac445165
+timeCreated: 1521935734
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Park_2
+    100002: Park_2_Better
     400000: //RootNode
-    400002: Park_2
-    2100000: Park_2Mat
-    2300000: Park_2
-    3300000: Park_2
-    4300000: Park_2
-  externalObjects: {}
+    400002: Park_2_Better
+    2100000: Park_2_BetterMat
+    2300000: Park_2_Better
+    3300000: Park_2_Better
+    4300000: Park_2_Better
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Park_2_BetterMat
+    second: {fileID: 2100000, guid: 074fde78803cd7a40aa5d7bd40745ceb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

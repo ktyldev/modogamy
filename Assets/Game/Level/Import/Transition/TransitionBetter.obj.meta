@@ -1,19 +1,24 @@
 fileFormatVersion: 2
-guid: e227df4fd56f05b4083ccd6c0a09fd32
-timeCreated: 1521870889
+guid: 4b61b3392c533a440b4ddafef975453f
+timeCreated: 1521935767
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Park_1
-    400000: //RootNode
-    400002: Park_1
-    2100000: Park_1Mat
-    2300000: Park_1
-    3300000: Park_1
-    4300000: Park_1
-  externalObjects: {}
+    100000: TransitionBetter
+    100002: //RootNode
+    400000: TransitionBetter
+    400002: //RootNode
+    2100000: TransitionBetterMat
+    2300000: TransitionBetter
+    3300000: TransitionBetter
+    4300000: TransitionBetter
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TransitionBetterMat
+    second: {fileID: 2100000, guid: b775dcbb6ea47bf458d6923374db8e89, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

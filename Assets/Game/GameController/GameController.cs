@@ -6,6 +6,9 @@ using Extensions;
 public class GameController : MonoBehaviour {
     [SerializeField]
     private bool _usingPhone = false;
+    [SerializeField]
+    private Bounds _levelBounds;
+
     private static GameController Instance { get; set; }
 
     void Awake()
@@ -22,6 +25,11 @@ public class GameController : MonoBehaviour {
     {
         get { return Instance._usingPhone; }
         set { Instance._usingPhone = value; }
+    }
+    
+    public static Bounds LevelBounds
+    {
+        get { return Instance._levelBounds; }
     }
 
     void Update()

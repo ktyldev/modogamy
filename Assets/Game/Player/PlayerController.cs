@@ -27,7 +27,14 @@ public class PlayerController : MonoBehaviour, IBouncer
             x = movementAxis * _walkSpeed
         };
 
+        var originalPosition = transform.position;
         transform.Translate(movement * Time.deltaTime);
+
+        // Stop player from leaving level
+        if (!GameController.LevelBounds.Contains(transform.position))
+        {
+            transform.position = originalPosition;
+        }
 
         if (movementAxis == 0f)
             return;
