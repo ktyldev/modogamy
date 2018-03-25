@@ -18,19 +18,17 @@ public class Trees : MonoBehaviour
     [SerializeField]
     private float _flowerSeparation;
     [SerializeField]
+    private float _flowerScale;
+    [SerializeField]
     private int _failedAttempts;
 
-    private List<Vector3> _treeLocations;
-    private List<Vector3> _flowerLocations;
-
-    private void Awake()
-    {
-        _treeLocations = new List<Vector3>();
-    }
+    private List<Vector3> _treeLocations = new List<Vector3>();
+    private List<Vector3> _flowerLocations = new List<Vector3>();
 
     void Start()
     {
         SpawnTrees();
+        SpawnFlowers();
     }
     
     private void SpawnTrees()
@@ -59,7 +57,7 @@ public class Trees : MonoBehaviour
     private void SpawnFlowers()
     {
         var failures = 0;
-        while (failures < _failedAttempts && _flowerLocations.Count() < _treeCount)
+        while (failures < _failedAttempts && _flowerLocations.Count() < _flowerCount)
         {
             var targetLocation = GetLocationInPark();
             if (_flowerLocations.Any(p => Vector3.Distance(p, targetLocation) < _flowerSeparation))
@@ -73,7 +71,8 @@ public class Trees : MonoBehaviour
 
             // get a random rotation
             var rot = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up);
-            Instantiate(template, targetLocation, rot);
+            var flower = Instantiate(template, targetLocation, rot);
+            flower.transform.localScale = Vector3.one * _flowerScale;
         }
     }
 
