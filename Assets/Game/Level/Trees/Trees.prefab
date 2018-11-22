@@ -75,7 +75,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 4b7208fe2fe05934eb07c86de25317ba, type: 3}
   - {fileID: 100000, guid: 5448ce5b1b889f44dae179f3e5da77a8, type: 3}
   - {fileID: 100000, guid: 430ba61cc0981be479a50e8d05d93b9b, type: 3}
-  _grassCount: 10000
+  _grassCount: 1000
   _grassSeparation: 0.05
   _grassScale: 0.05
   _failedAttempts: 20
