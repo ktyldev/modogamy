@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.modogamy.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\mewtw\\projects\\modogamy\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Modogamy [Testing]"
+        }
+      }
+    }
+  ]
+}
