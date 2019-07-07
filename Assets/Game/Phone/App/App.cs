@@ -31,7 +31,7 @@ public class App : MonoBehaviour {
     private SFXManager _sfxManager;
 
     private PlayerController _player;
-    private bool _dogCanSpawn { get { return _player.Dog == null; } }
+    private bool _dogCanSpawn { get { return _player?.Dog == null; } }
 
     void LoadProfile(DogProfile profile)
     {
@@ -57,7 +57,7 @@ public class App : MonoBehaviour {
 
     void Start()
     {
-        _player = this.Find<PlayerController>(GameTags.Player);
+        _player = this.Find(GameTags.Player).GetComponent<PlayerController>();
         _factory = this.FindInChild<DogFactory>(GameTags.Factories);
         _sfxManager = this.Find<SFXManager>(GameTags.Audio);
         LoadNewProfile();

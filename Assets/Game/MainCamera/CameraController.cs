@@ -25,8 +25,8 @@ public class CameraController : MonoBehaviour
     
     void LateUpdate()
     {
-        var dog = _player.Dog;
         var targetPosition = Vector3.zero;
+        var dog = _player?.Dog;
         if (dog != null)
         {
             // Get the position halfway between the two
